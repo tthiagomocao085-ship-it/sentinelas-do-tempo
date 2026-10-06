@@ -1,0 +1,2047 @@
+/* =========================================================
+   SENTINELAS DO TEMPO
+   GALERIA — CINEMATIC EDITION
+========================================================= */
+
+:root {
+
+    --gallery-black: #050505;
+    --gallery-deep: #080807;
+    --gallery-panel: #10100e;
+
+    --gallery-gold: #c8a96b;
+    --gallery-gold-light: #e0c98f;
+
+    --gallery-white: #f2efe8;
+    --gallery-muted: #aaa69d;
+    --gallery-line: rgba(200, 169, 107, 0.25);
+
+}
+
+
+/* =========================================================
+   BASE
+========================================================= */
+
+.gallery-page {
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(200,169,107,.035),
+            transparent 35%
+        ),
+        var(--gallery-black);
+
+    color: var(--gallery-white);
+
+    overflow-x: hidden;
+
+}
+
+
+/* =========================================================
+   LOADER
+========================================================= */
+
+.gallery-loader {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 99999;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #030303;
+
+    transition:
+        opacity 1s ease,
+        visibility 1s ease;
+
+}
+
+
+.gallery-loader.loaded {
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+}
+
+
+.gallery-loader-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    text-align: center;
+
+}
+
+
+.loader-symbol {
+
+    display: block;
+
+    width: 64px;
+
+    height: 64px;
+
+    margin: 0 auto 25px;
+
+    border:
+
+        1px solid
+
+        var(--gallery-gold);
+
+    color: var(--gallery-gold);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-family: Cinzel, serif;
+
+    font-size: 17px;
+
+    letter-spacing: 3px;
+
+}
+
+
+.gallery-loader-content > small {
+
+    font-family: Inter, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 5px;
+
+    color: #aaa;
+
+}
+
+
+.gallery-loader-line {
+
+    width: 110px;
+
+    height: 1px;
+
+    background: var(--gallery-gold);
+
+    margin: 20px auto;
+
+    animation: loaderLine 1.6s ease infinite alternate;
+
+}
+
+
+.gallery-loader-content h1 {
+
+    margin: 0;
+
+    font-family: Cinzel, serif;
+
+    font-size: 34px;
+
+    font-weight: 500;
+
+    letter-spacing: 8px;
+
+}
+
+
+.gallery-loader-content p {
+
+    margin-top: 13px;
+
+    color: #777;
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+
+}
+
+
+@keyframes loaderLine {
+
+    from {
+        transform: scaleX(.25);
+    }
+
+    to {
+        transform: scaleX(1);
+    }
+
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.gallery-header {
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0,0,0,.85),
+            rgba(0,0,0,0)
+        ) !important;
+
+    border-bottom: 1px solid rgba(255,255,255,.04);
+
+    z-index: 100;
+
+}
+
+
+/* Logo padrão */
+
+.gallery-header .logo {
+
+    color: white;
+
+    text-decoration: none;
+
+}
+
+
+.gallery-header .logo > span {
+
+    color: var(--gallery-gold);
+
+}
+
+
+.gallery-header .logo strong {
+
+    font-family: Cinzel, serif;
+
+    letter-spacing: 3px;
+
+}
+
+
+.gallery-header .logo small {
+
+    letter-spacing: 4px;
+
+}
+
+
+.gallery-header .main-nav a {
+
+    position: relative;
+
+    transition:
+        color .3s ease;
+
+}
+
+
+.gallery-header .main-nav a::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: -10px;
+
+    width: 0;
+
+    height: 1px;
+
+    background: var(--gallery-gold);
+
+    transform: translateX(-50%);
+
+    transition: width .35s ease;
+
+}
+
+
+.gallery-header .main-nav a:hover::after,
+.gallery-header .main-nav a.active::after {
+
+    width: 100%;
+
+}
+
+
+.gallery-header .main-nav a.active {
+
+    color: var(--gallery-gold-light);
+
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.gallery-cinematic-hero {
+
+    position: relative;
+
+    min-height: 100vh;
+
+    height: 900px;
+
+    display: flex;
+
+    align-items: center;
+
+    overflow: hidden;
+
+}
+
+
+.hero-image {
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+        url("../images/galeria/paisagem/paisagem-01.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    transform: scale(1.04);
+
+    animation: heroBreath 14s ease-in-out infinite alternate;
+
+}
+
+
+@keyframes heroBreath {
+
+    from {
+        transform: scale(1.04);
+    }
+
+    to {
+        transform: scale(1.11);
+    }
+
+}
+
+
+.hero-vignette {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,.9) 0%,
+            rgba(0,0,0,.55) 42%,
+            rgba(0,0,0,.15) 75%,
+            rgba(0,0,0,.65) 100%
+        ),
+
+        linear-gradient(
+            to top,
+            rgba(0,0,0,.95),
+            transparent 40%,
+            rgba(0,0,0,.3)
+        );
+
+}
+
+
+.hero-grain {
+
+    position: absolute;
+
+    inset: 0;
+
+    opacity: .07;
+
+    pointer-events: none;
+
+    background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.7'/%3E%3C/svg%3E");
+
+}
+
+
+.hero-content {
+
+    position: relative;
+
+    z-index: 5;
+
+    width: min(1200px, 90%);
+
+    margin: 0 auto;
+
+    padding-top: 90px;
+
+}
+
+
+.hero-kicker,
+.section-kicker {
+
+    display: block;
+
+    color: var(--gallery-gold);
+
+    font-family: Inter, sans-serif;
+
+    font-size: 10px;
+
+    font-weight: 500;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+}
+
+
+.hero-content h1 {
+
+    margin: 28px 0;
+
+    max-width: 850px;
+
+    font-family: Cinzel, serif;
+
+    font-size: clamp(58px, 8vw, 120px);
+
+    font-weight: 400;
+
+    line-height: .92;
+
+    letter-spacing: -3px;
+
+}
+
+
+.hero-content h1 em {
+
+    color: var(--gallery-gold-light);
+
+    font-style: normal;
+
+}
+
+
+.hero-content p {
+
+    max-width: 500px;
+
+    margin-bottom: 42px;
+
+    color: rgba(255,255,255,.72);
+
+    font-family: Inter, sans-serif;
+
+    font-size: 16px;
+
+    font-weight: 300;
+
+    line-height: 1.9;
+
+}
+
+
+.hero-side-label {
+
+    position: absolute;
+
+    right: 5%;
+
+    top: 50%;
+
+    z-index: 5;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 14px;
+
+    transform: translateY(-50%);
+
+}
+
+
+.hero-side-label span {
+
+    font-family: Cinzel, serif;
+
+    color: var(--gallery-gold);
+
+    font-size: 16px;
+
+}
+
+
+.hero-side-label i {
+
+    width: 1px;
+
+    height: 90px;
+
+    background: var(--gallery-line);
+
+}
+
+
+.hero-side-label small {
+
+    writing-mode: vertical-rl;
+
+    color: rgba(255,255,255,.5);
+
+    font-size: 8px;
+
+    letter-spacing: 4px;
+
+}
+
+
+.hero-bottom {
+
+    position: absolute;
+
+    left: 5%;
+
+    right: 5%;
+
+    bottom: 35px;
+
+    z-index: 5;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    padding-top: 18px;
+
+    border-top: 1px solid rgba(255,255,255,.15);
+
+    color: rgba(255,255,255,.45);
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+}
+
+
+/* =========================================================
+   BOTÕES CINEMA
+========================================================= */
+
+.cinema-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 35px;
+
+    min-width: 240px;
+
+    padding: 17px 20px 17px 25px;
+
+    border: 1px solid rgba(200,169,107,.6);
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    transition:
+        background .35s ease,
+        color .35s ease,
+        transform .35s ease;
+
+}
+
+
+.cinema-button strong {
+
+    color: var(--gallery-gold);
+
+    font-size: 18px;
+
+    font-weight: 300;
+
+}
+
+
+.cinema-button:hover {
+
+    background: var(--gallery-gold);
+
+    color: #080706;
+
+    transform: translateY(-3px);
+
+}
+
+
+.cinema-button:hover strong {
+
+    color: #080706;
+
+}
+
+
+.cinema-button-dark {
+
+    border-color: rgba(255,255,255,.2);
+
+}
+
+
+/* =========================================================
+   ABERTURA
+========================================================= */
+
+.gallery-opening {
+
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns: 120px minmax(0, 720px) 180px;
+
+    justify-content: center;
+
+    gap: 70px;
+
+    padding: 180px 7%;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(200,169,107,.05),
+            transparent 50%
+        ),
+
+        var(--gallery-deep);
+
+}
+
+
+.opening-number {
+
+    padding-top: 8px;
+
+    color: var(--gallery-gold);
+
+    font-family: Cinzel, serif;
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+
+}
+
+
+.opening-content h2 {
+
+    margin: 25px 0 40px;
+
+    font-family: Cinzel, serif;
+
+    font-size: clamp(38px, 5vw, 65px);
+
+    font-weight: 400;
+
+    line-height: 1.05;
+
+}
+
+
+.opening-content h2 em {
+
+    color: var(--gallery-gold);
+
+    font-style: normal;
+
+}
+
+
+.opening-divider {
+
+    width: 80px;
+
+    height: 1px;
+
+    margin-bottom: 30px;
+
+    background: var(--gallery-gold);
+
+}
+
+
+.opening-content p {
+
+    max-width: 620px;
+
+    color: #929089;
+
+    font-size: 15px;
+
+    font-weight: 300;
+
+    line-height: 2;
+
+}
+
+
+.opening-content .opening-lead {
+
+    color: #d1cdc3;
+
+    font-size: 17px;
+
+}
+
+
+.opening-meta {
+
+    align-self: end;
+
+    border-left: 1px solid var(--gallery-line);
+
+    padding-left: 25px;
+
+}
+
+
+.opening-meta span,
+.opening-meta small {
+
+    display: block;
+
+    color: #777;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+}
+
+
+.opening-meta strong {
+
+    display: block;
+
+    margin: 10px 0;
+
+    color: var(--gallery-gold);
+
+    font-family: Cinzel, serif;
+
+    font-size: 65px;
+
+    font-weight: 400;
+
+}
+
+
+/* =========================================================
+   CURADORIA
+========================================================= */
+
+.gallery-curation {
+
+    padding: 110px 7% 70px;
+
+    background: #080807;
+
+}
+
+
+.curation-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: end;
+
+    max-width: 1300px;
+
+    margin: auto;
+
+}
+
+
+.curation-header h2 {
+
+    margin-top: 18px;
+
+    font-family: Cinzel, serif;
+
+    font-size: 50px;
+
+    font-weight: 400;
+
+}
+
+
+.curation-description {
+
+    max-width: 260px;
+
+    color: #777;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+
+}
+
+
+.gallery-filters {
+
+    display: flex;
+
+    gap: 0;
+
+    max-width: 1300px;
+
+    margin: 70px auto 0;
+
+    border-bottom: 1px solid rgba(255,255,255,.1);
+
+}
+
+
+.gallery-filter {
+
+    position: relative;
+
+    padding: 18px 30px;
+
+    border: 0;
+
+    background: none;
+
+    color: #777;
+
+    cursor: pointer;
+
+    font-family: Inter, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    transition: color .3s ease;
+
+}
+
+
+.gallery-filter span {
+
+    margin-right: 14px;
+
+    color: var(--gallery-gold);
+
+}
+
+
+.gallery-filter::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    right: 0;
+
+    bottom: -1px;
+
+    height: 1px;
+
+    background: var(--gallery-gold);
+
+    transform: scaleX(0);
+
+    transition: transform .3s ease;
+
+}
+
+
+.gallery-filter:hover,
+.gallery-filter.active {
+
+    color: white;
+
+}
+
+
+.gallery-filter.active::after {
+
+    transform: scaleX(1);
+
+}
+
+
+/* =========================================================
+   GRID CINEMATOGRÁFICO
+========================================================= */
+
+.cinematic-gallery {
+
+    display: grid;
+
+    grid-template-columns: repeat(12, 1fr);
+
+    gap: 4px;
+
+    padding: 4px;
+
+    background: #030303;
+
+}
+
+
+.gallery-item {
+
+    position: relative;
+
+    min-height: 430px;
+
+    overflow: hidden;
+
+}
+
+
+.gallery-item-large {
+
+    grid-column: span 7;
+
+    min-height: 600px;
+
+}
+
+
+.gallery-item-wide {
+
+    grid-column: span 7;
+
+    min-height: 470px;
+
+}
+
+
+.gallery-item:not(.gallery-item-large):not(.gallery-item-wide) {
+
+    grid-column: span 5;
+
+}
+
+
+.gallery-image {
+
+    position: relative;
+
+    display: block;
+
+    width: 100%;
+
+    height: 100%;
+
+    min-height: inherit;
+
+    padding: 0;
+
+    border: 0;
+
+    background: none;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+}
+
+
+.gallery-image img {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    transition:
+        transform 1.2s cubic-bezier(.2,.7,.2,1),
+        filter .8s ease;
+
+}
+
+
+.gallery-image:hover img {
+
+    transform: scale(1.07);
+
+    filter: brightness(.8);
+
+}
+
+
+.image-shade {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0,0,0,.85),
+            transparent 55%
+        );
+
+    opacity: .8;
+
+    transition: opacity .5s ease;
+
+}
+
+
+.gallery-image:hover .image-shade {
+
+    opacity: 1;
+
+}
+
+
+.image-number {
+
+    position: absolute;
+
+    top: 25px;
+
+    left: 28px;
+
+    color: rgba(255,255,255,.75);
+
+    font-family: Cinzel, serif;
+
+    font-size: 12px;
+
+}
+
+
+.image-info {
+
+    position: absolute;
+
+    left: 30px;
+
+    bottom: 28px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+
+    text-align: left;
+
+}
+
+
+.image-info span {
+
+    color: var(--gallery-gold);
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+}
+
+
+.image-info strong {
+
+    color: white;
+
+    font-family: Cinzel, serif;
+
+    font-size: 20px;
+
+    font-weight: 400;
+
+}
+
+
+.image-open {
+
+    position: absolute;
+
+    top: 25px;
+
+    right: 28px;
+
+    width: 35px;
+
+    height: 35px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border: 1px solid rgba(255,255,255,.4);
+
+    border-radius: 50%;
+
+    color: white;
+
+    font-size: 18px;
+
+    font-weight: 200;
+
+    transition:
+        background .3s ease,
+        border .3s ease;
+
+}
+
+
+.gallery-image:hover .image-open {
+
+    background: var(--gallery-gold);
+
+    border-color: var(--gallery-gold);
+
+    color: black;
+
+}
+
+
+/* =========================================================
+   INTERLUDE
+========================================================= */
+
+.gallery-interlude {
+
+    position: relative;
+
+    height: 680px;
+
+    display: flex;
+
+    align-items: center;
+
+    overflow: hidden;
+
+}
+
+
+.interlude-image {
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+        url("../images/galeria/paisagem/paisagem-07.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    transform: scale(1.04);
+
+}
+
+
+.interlude-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,.9),
+            rgba(0,0,0,.3),
+            rgba(0,0,0,.7)
+        );
+
+}
+
+
+.interlude-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: min(1100px, 85%);
+
+    margin: auto;
+
+}
+
+
+.interlude-content > span {
+
+    color: var(--gallery-gold);
+
+    font-size: 9px;
+
+    letter-spacing: 5px;
+
+}
+
+
+.interlude-line {
+
+    width: 90px;
+
+    height: 1px;
+
+    margin: 25px 0;
+
+    background: var(--gallery-gold);
+
+}
+
+
+.interlude-content h2 {
+
+    margin: 0;
+
+    font-family: Cinzel, serif;
+
+    font-size: clamp(45px, 6vw, 82px);
+
+    font-weight: 400;
+
+    line-height: 1;
+
+}
+
+
+.interlude-content h2 em {
+
+    color: var(--gallery-gold-light);
+
+    font-style: normal;
+
+}
+
+
+.interlude-content p {
+
+    max-width: 450px;
+
+    margin-top: 30px;
+
+    color: rgba(255,255,255,.65);
+
+    font-size: 14px;
+
+    line-height: 1.9;
+
+}
+
+
+/* =========================================================
+   MANIFESTO
+========================================================= */
+
+.gallery-manifesto {
+
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns: 120px minmax(0, 700px);
+
+    justify-content: center;
+
+    gap: 70px;
+
+    padding: 190px 7%;
+
+    background: var(--gallery-deep);
+
+}
+
+
+.manifesto-number {
+
+    color: var(--gallery-gold);
+
+    font-family: Cinzel, serif;
+
+    font-size: 12px;
+
+}
+
+
+.manifesto-content h2 {
+
+    margin: 25px 0 35px;
+
+    font-family: Cinzel, serif;
+
+    font-size: clamp(42px, 5vw, 68px);
+
+    font-weight: 400;
+
+    line-height: 1.05;
+
+}
+
+
+.manifesto-content h2 em {
+
+    color: var(--gallery-gold);
+
+    font-style: normal;
+
+}
+
+
+.manifesto-line {
+
+    width: 90px;
+
+    height: 1px;
+
+    margin-bottom: 30px;
+
+    background: var(--gallery-gold);
+
+}
+
+
+.manifesto-content p {
+
+    max-width: 600px;
+
+    color: #85837d;
+
+    font-size: 15px;
+
+    line-height: 2;
+
+}
+
+
+/* =========================================================
+   FINAL
+========================================================= */
+
+.gallery-final {
+
+    position: relative;
+
+    min-height: 760px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    overflow: hidden;
+
+}
+
+
+.final-background {
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+        url("../images/forte-1859.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    transform: scale(1.04);
+
+}
+
+
+.final-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        linear-gradient(
+            rgba(0,0,0,.7),
+            rgba(0,0,0,.88)
+        );
+
+}
+
+
+.final-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 850px;
+
+    padding: 100px 30px;
+
+}
+
+
+.final-content h2 {
+
+    margin: 25px 0;
+
+    font-family: Cinzel, serif;
+
+    font-size: clamp(55px, 8vw, 105px);
+
+    font-weight: 400;
+
+    line-height: .95;
+
+}
+
+
+.final-content h2 em {
+
+    color: var(--gallery-gold);
+
+    font-style: normal;
+
+}
+
+
+.final-content p {
+
+    max-width: 500px;
+
+    margin: 0 auto 45px;
+
+    color: rgba(255,255,255,.65);
+
+    font-size: 14px;
+
+    line-height: 1.9;
+
+}
+
+
+.final-buttons {
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+}
+
+
+/* =========================================================
+   LIGHTBOX
+========================================================= */
+
+.image-lightbox {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 999999;
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 40px;
+
+}
+
+
+.image-lightbox.active {
+
+    display: flex;
+
+}
+
+
+.lightbox-backdrop {
+
+    position: absolute;
+
+    inset: 0;
+
+    background: rgba(0,0,0,.96);
+
+    backdrop-filter: blur(10px);
+
+}
+
+
+.lightbox-container {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: min(1200px, 90vw);
+
+    height: min(85vh, 800px);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+.lightbox-image-wrapper {
+
+    position: relative;
+
+    max-width: 90%;
+
+    max-height: 100%;
+
+}
+
+
+.lightbox-image-wrapper img {
+
+    display: block;
+
+    max-width: 100%;
+
+    max-height: 75vh;
+
+    object-fit: contain;
+
+}
+
+
+.lightbox-caption {
+
+    margin-top: 18px;
+
+    text-align: center;
+
+}
+
+
+.lightbox-caption span {
+
+    display: block;
+
+    color: var(--gallery-gold);
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+}
+
+
+.lightbox-caption strong {
+
+    display: block;
+
+    margin-top: 7px;
+
+    font-family: Cinzel, serif;
+
+    font-size: 17px;
+
+    font-weight: 400;
+
+}
+
+
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next {
+
+    position: absolute;
+
+    z-index: 5;
+
+    border: 1px solid rgba(255,255,255,.2);
+
+    background: rgba(0,0,0,.5);
+
+    color: white;
+
+    cursor: pointer;
+
+    transition:
+        background .3s ease,
+        border .3s ease;
+
+}
+
+
+.lightbox-close:hover,
+.lightbox-prev:hover,
+.lightbox-next:hover {
+
+    background: var(--gallery-gold);
+
+    border-color: var(--gallery-gold);
+
+    color: black;
+
+}
+
+
+.lightbox-close {
+
+    top: 0;
+
+    right: 0;
+
+    width: 45px;
+
+    height: 45px;
+
+    font-size: 25px;
+
+}
+
+
+.lightbox-prev,
+.lightbox-next {
+
+    top: 50%;
+
+    width: 50px;
+
+    height: 50px;
+
+    transform: translateY(-50%);
+
+    font-size: 30px;
+
+}
+
+
+.lightbox-prev {
+
+    left: 0;
+
+}
+
+
+.lightbox-next {
+
+    right: 0;
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.gallery-page .site-footer {
+
+    background: #030303;
+
+    border-top: 1px solid rgba(255,255,255,.07);
+
+}
+
+
+.gallery-page .footer-inner {
+
+    min-height: 150px;
+
+}
+
+
+.footer-info {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-end;
+
+    gap: 9px;
+
+}
+
+
+.footer-info span {
+
+    color: #666;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+}
+
+
+.footer-info small {
+
+    color: var(--gallery-gold);
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+}
+
+
+/* =========================================================
+   RESPONSIVO
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .gallery-opening {
+
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+
+        padding: 120px 8%;
+
+    }
+
+
+    .opening-number {
+
+        margin-bottom: 10px;
+
+    }
+
+
+    .opening-meta {
+
+        border-left: 0;
+
+        border-top: 1px solid var(--gallery-line);
+
+        padding: 25px 0 0;
+
+    }
+
+
+    .opening-meta strong {
+
+        font-size: 48px;
+
+    }
+
+
+    .cinematic-gallery {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+
+    .gallery-item,
+    .gallery-item-large,
+    .gallery-item-wide {
+
+        grid-column: span 1;
+
+        min-height: 400px;
+
+    }
+
+
+    .gallery-item-large {
+
+        grid-column: span 2;
+
+    }
+
+
+    .gallery-item-wide {
+
+        grid-column: span 2;
+
+    }
+
+
+    .gallery-manifesto {
+
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .gallery-cinematic-hero {
+
+        min-height: 780px;
+
+        height: 100svh;
+
+    }
+
+
+    .hero-content {
+
+        padding-top: 100px;
+
+    }
+
+
+    .hero-content h1 {
+
+        font-size: 54px;
+
+        letter-spacing: -1px;
+
+    }
+
+
+    .hero-content p {
+
+        font-size: 14px;
+
+    }
+
+
+    .hero-side-label {
+
+        display: none;
+
+    }
+
+
+    .hero-bottom {
+
+        display: none;
+
+    }
+
+
+    .gallery-opening {
+
+        padding: 100px 7%;
+
+    }
+
+
+    .opening-content h2 {
+
+        font-size: 39px;
+
+    }
+
+
+    .curation-header {
+
+        display: block;
+
+    }
+
+
+    .curation-header h2 {
+
+        font-size: 40px;
+
+    }
+
+
+    .curation-description {
+
+        margin-top: 20px;
+
+    }
+
+
+    .gallery-filters {
+
+        overflow-x: auto;
+
+    }
+
+
+    .gallery-filter {
+
+        white-space: nowrap;
+
+        padding: 18px 20px;
+
+    }
+
+
+    .cinematic-gallery {
+
+        display: block;
+
+    }
+
+
+    .gallery-item,
+    .gallery-item-large,
+    .gallery-item-wide {
+
+        min-height: 380px;
+
+    }
+
+
+    .gallery-interlude {
+
+        height: 560px;
+
+    }
+
+
+    .interlude-content h2 {
+
+        font-size: 46px;
+
+    }
+
+
+    .gallery-manifesto {
+
+        padding: 120px 8%;
+
+    }
+
+
+    .final-content h2 {
+
+        font-size: 55px;
+
+    }
+
+
+    .cinema-button {
+
+        width: 100%;
+
+        justify-content: space-between;
+
+    }
+
+
+    .final-buttons {
+
+        width: min(320px, 100%);
+
+        margin: auto;
+
+    }
+
+
+    .lightbox-container {
+
+        width: 100%;
+
+    }
+
+
+    .lightbox-prev,
+    .lightbox-next {
+
+        width: 40px;
+
+        height: 40px;
+
+    }
+
+
+    .lightbox-prev {
+
+        left: -5px;
+
+    }
+
+
+    .lightbox-next {
+
+        right: -5px;
+
+    }
+
+
+    .footer-info {
+
+        align-items: flex-start;
+
+        margin-top: 25px;
+
+    }
+
+}

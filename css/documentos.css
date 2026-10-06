@@ -1,0 +1,1309 @@
+/* =========================================================
+   SENTINELAS DO TEMPO
+   ACERVO DIGITAL — documentos.css
+========================================================= */
+
+.archive-page {
+    --archive-gold: #c9a45c;
+    --archive-gold-light: #e0c17a;
+    --archive-white: #f4f1ea;
+    --archive-gray: #aaa59c;
+    --archive-dark: #050505;
+    --archive-line: rgba(201, 164, 92, 0.28);
+}
+
+
+/* =========================================================
+   LOADER
+========================================================= */
+
+.archive-loader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #050505;
+
+    opacity: 1;
+    visibility: visible;
+
+    transition:
+        opacity 0.8s ease,
+        visibility 0.8s ease;
+}
+
+.archive-loader.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.archive-loader-content {
+    width: min(500px, 86%);
+    text-align: center;
+}
+
+.archive-loader-content > span {
+    display: block;
+
+    color: var(--archive-gold);
+
+    font-family: "Cinzel", serif;
+    font-size: 11px;
+    letter-spacing: 5px;
+}
+
+.archive-loader-line {
+    width: 100%;
+    height: 1px;
+
+    margin: 22px 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--archive-gold),
+            transparent
+        );
+
+    transform-origin: center;
+    animation: archiveLoaderLine 2s ease infinite;
+}
+
+.archive-loader-content h1 {
+    margin: 0;
+
+    color: var(--archive-white);
+
+    font-family: "Cinzel", serif;
+    font-size: clamp(25px, 5vw, 46px);
+    font-weight: 500;
+    letter-spacing: 4px;
+}
+
+.archive-loader-content small {
+    display: block;
+
+    margin-top: 14px;
+
+    color: #77736c;
+
+    font-family: "Inter", sans-serif;
+    font-size: 9px;
+    letter-spacing: 3px;
+}
+
+@keyframes archiveLoaderLine {
+    0% {
+        transform: scaleX(0.1);
+        opacity: 0.2;
+    }
+
+    50% {
+        transform: scaleX(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scaleX(0.1);
+        opacity: 0.2;
+    }
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.archive-hero {
+    position: relative;
+
+    min-height: 88vh;
+
+    display: flex;
+    align-items: center;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.82),
+            rgba(0, 0, 0, 0.45),
+            rgba(0, 0, 0, 0.72)
+        ),
+        url("../images/forte-coimbra.jpg")
+        center / cover no-repeat;
+
+    overflow: hidden;
+}
+
+.archive-hero::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.3),
+            transparent 50%,
+            #050505 100%
+        );
+
+    pointer-events: none;
+}
+
+.archive-hero-overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 25% 45%,
+            rgba(201, 164, 92, 0.08),
+            transparent 35%
+        );
+
+    pointer-events: none;
+}
+
+.archive-hero-content {
+    position: relative;
+    z-index: 2;
+
+    width: min(1200px, 90%);
+    margin: 0 auto;
+
+    padding-top: 90px;
+}
+
+.chapter-label {
+    display: inline-block;
+
+    margin-bottom: 28px;
+
+    color: var(--archive-gold);
+
+    font-family: "Inter", sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 4px;
+}
+
+.archive-hero h1 {
+    max-width: 900px;
+
+    margin: 0;
+
+    color: var(--archive-white);
+
+    font-family: "Cinzel", serif;
+    font-size: clamp(46px, 7vw, 96px);
+    line-height: 0.98;
+    font-weight: 500;
+    letter-spacing: -1px;
+}
+
+.archive-hero p {
+    max-width: 610px;
+
+    margin-top: 35px;
+
+    color: rgba(244, 241, 234, 0.72);
+
+    font-family: "Inter", sans-serif;
+    font-size: 15px;
+    line-height: 1.9;
+    font-weight: 300;
+}
+
+.hero-scroll {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    margin-top: 65px;
+
+    color: #8c877e;
+
+    font-family: "Inter", sans-serif;
+    font-size: 9px;
+    letter-spacing: 3px;
+}
+
+.hero-scroll i {
+    display: block;
+
+    width: 60px;
+    height: 1px;
+
+    background: var(--archive-gold);
+}
+
+
+/* =========================================================
+   INTRODUÇÃO
+========================================================= */
+
+.archive-intro {
+    position: relative;
+
+    padding: 150px 0 170px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #050505 0%,
+            #080808 100%
+        );
+}
+
+
+.archive-intro-content {
+    width: min(1200px, 90%);
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        230px
+        minmax(0, 1fr);
+
+    column-gap: 90px;
+
+    align-items: start;
+}
+
+
+/* =========================================================
+   COLUNA EDITORIAL
+========================================================= */
+
+.section-number {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    min-height: 330px;
+
+    padding-top: 3px;
+}
+
+.section-number strong {
+    display: block;
+
+    color: var(--archive-gold);
+
+    font-family: "Cinzel", serif;
+    font-size: 54px;
+    font-weight: 400;
+    line-height: 1;
+
+    letter-spacing: 2px;
+}
+
+.section-line {
+    display: block;
+
+    width: 1px;
+    height: 95px;
+
+    margin: 25px 0 24px 8px;
+
+    background:
+        linear-gradient(
+            180deg,
+            var(--archive-gold),
+            rgba(201, 164, 92, 0.12)
+        );
+}
+
+.section-number small {
+    display: block;
+
+    color: rgba(244, 241, 234, 0.52);
+
+    font-family: "Inter", sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+
+    line-height: 1.9;
+
+    letter-spacing: 3px;
+}
+
+
+/* =========================================================
+   TEXTO DA INTRODUÇÃO
+========================================================= */
+
+.archive-intro-text {
+    max-width: 780px;
+
+    padding-top: 7px;
+}
+
+.eyebrow {
+    display: block;
+
+    margin-bottom: 24px;
+
+    color: var(--archive-gold);
+
+    font-family: "Inter", sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+
+    letter-spacing: 4px;
+}
+
+.archive-intro-text h2 {
+    margin: 0;
+
+    color: var(--archive-white);
+
+    font-family: "Cinzel", serif;
+    font-size: clamp(38px, 5vw, 68px);
+    font-weight: 400;
+
+    line-height: 1.12;
+    letter-spacing: -0.8px;
+}
+
+.archive-intro-text p {
+    max-width: 680px;
+
+    margin-top: 34px;
+
+    color: rgba(244, 241, 234, 0.63);
+
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+
+    line-height: 1.95;
+}
+
+.archive-intro-text p + p {
+    margin-top: 18px;
+}
+
+
+/* =========================================================
+   SEÇÃO DO ACERVO
+========================================================= */
+
+.archive-section {
+    position: relative;
+
+    padding: 130px 0 150px;
+
+    background: #090909;
+}
+
+.archive-heading {
+    width: min(1200px, 90%);
+    margin: 0 auto 65px;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+.archive-heading h2 {
+    margin: 0;
+
+    color: var(--archive-white);
+
+    font-family: "Cinzel", serif;
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 400;
+
+    line-height: 1.1;
+}
+
+.archive-count {
+    color: #716d65;
+
+    font-family: "Inter", sans-serif;
+    font-size: 9px;
+    letter-spacing: 3px;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   GRID DOS DOCUMENTOS
+========================================================= */
+
+/*
+   IMPORTANTE:
+   O fundo da grade agora é TRANSPARENTE.
+   Isso remove o quadrado/amarelo que aparecia
+   depois do documento 07.
+*/
+
+.documents-grid {
+    width: min(1200px, 90%);
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 28px;
+
+    background: transparent;
+}
+
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.document-card {
+    position: relative;
+
+    min-height: 430px;
+
+    padding: 35px;
+
+    display: flex;
+    flex-direction: column;
+
+    background:
+        linear-gradient(
+            145deg,
+            #101010,
+            #080808
+        );
+
+    border: 1px solid rgba(201, 164, 92, 0.08);
+
+    overflow: hidden;
+
+    opacity: 0;
+    transform: translateY(35px);
+
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.18);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease,
+        background 0.4s ease,
+        border-color 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+.document-card.document-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.document-card:hover {
+    background:
+        linear-gradient(
+            145deg,
+            #151515,
+            #0a0a0a
+        );
+
+    border-color: rgba(201, 164, 92, 0.25);
+
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.3);
+}
+
+
+/* =========================================================
+   TOPO DOS CARDS
+========================================================= */
+
+.document-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.document-number {
+    color: var(--archive-gold);
+
+    font-family: "Cinzel", serif;
+    font-size: 17px;
+}
+
+.document-type {
+    color: #69655e;
+
+    font-family: "Inter", sans-serif;
+    font-size: 8px;
+    letter-spacing: 3px;
+}
+
+
+/* =========================================================
+   ÍCONE
+========================================================= */
+
+.document-icon {
+    width: 55px;
+    height: 55px;
+
+    margin-top: 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(201, 164, 92, 0.35);
+
+    color: var(--archive-gold);
+
+    font-family: "Cinzel", serif;
+    font-size: 22px;
+
+    transition:
+        transform 0.4s ease,
+        background 0.4s ease;
+}
+
+.document-card:hover .document-icon {
+    transform: rotate(45deg);
+
+    background: rgba(201, 164, 92, 0.06);
+}
+
+
+/* =========================================================
+   CONTEÚDO DO DOCUMENTO
+========================================================= */
+
+.document-content {
+    margin-top: auto;
+}
+
+.document-category {
+    display: block;
+
+    margin-bottom: 13px;
+
+    color: var(--archive-gold);
+
+    font-family: "Inter", sans-serif;
+    font-size: 8px;
+    letter-spacing: 3px;
+}
+
+.document-content h3 {
+    max-width: 480px;
+
+    margin: 0;
+
+    color: var(--archive-white);
+
+    font-family: "Cinzel", serif;
+    font-size: clamp(23px, 2.5vw, 32px);
+    font-weight: 400;
+
+    line-height: 1.2;
+}
+
+.document-subtitle {
+    max-width: 470px;
+
+    margin: 17px 0 0;
+
+    color: #817c74;
+
+    font-family: "Inter", sans-serif;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.document-meta {
+    margin-top: 25px;
+
+    color: #59564f;
+
+    font-family: "Inter", sans-serif;
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   BOTÃO DO DOCUMENTO
+========================================================= */
+
+.document-button {
+    width: 100%;
+
+    margin-top: 27px;
+    padding: 14px 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border: 0;
+    border-top: 1px solid rgba(201, 164, 92, 0.2);
+
+    background: transparent;
+
+    color: var(--archive-white);
+
+    font-family: "Inter", sans-serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition:
+        color 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.document-button:hover {
+    color: var(--archive-gold);
+
+    border-color: var(--archive-gold);
+}
+
+.button-arrow {
+    color: var(--archive-gold);
+
+    font-size: 17px;
+
+    transition: transform 0.3s ease;
+}
+
+.document-button:hover .button-arrow {
+    transform: translateX(7px);
+}
+
+
+/* =========================================================
+   FRASE
+========================================================= */
+
+.archive-statement {
+    width: min(900px, 88%);
+    margin: 0 auto;
+
+    padding: 150px 0;
+
+    text-align: center;
+}
+
+.statement-mark {
+    color: var(--archive-gold);
+
+    font-family: "Cinzel", serif;
+    font-size: 80px;
+    line-height: 0.5;
+}
+
+.archive-statement p {
+    margin: 45px auto 0;
+
+    color: rgba(244, 241, 234, 0.65);
+
+    font-family: "Cinzel", serif;
+    font-size: clamp(25px, 3vw, 39px);
+    font-weight: 400;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   FINAL
+========================================================= */
+
+.archive-final {
+    position: relative;
+
+    padding: 150px 0 170px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #090909,
+            #050505
+        );
+
+    border-top: 1px solid rgba(201, 164, 92, 0.12);
+}
+
+.archive-final-content {
+    width: min(900px, 88%);
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+.archive-final-content h2 {
+    margin: 0;
+
+    color: var(--archive-white);
+
+    font-family: "Cinzel", serif;
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: 400;
+
+    line-height: 1.08;
+}
+
+.archive-final-content p {
+    max-width: 580px;
+
+    margin: 30px auto 0;
+
+    color: #77736c;
+
+    font-family: "Inter", sans-serif;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   BOTÕES FINAIS
+========================================================= */
+
+.final-buttons {
+    margin-top: 45px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 15px;
+}
+
+.museum-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 20px;
+
+    min-width: 230px;
+
+    padding: 15px 23px;
+
+    border: 1px solid var(--archive-gold);
+
+    color: var(--archive-white);
+
+    font-family: "Inter", sans-serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+
+    text-decoration: none;
+
+    transition:
+        background 0.35s ease,
+        color 0.35s ease,
+        border-color 0.35s ease;
+}
+
+.museum-button span {
+    color: var(--archive-gold);
+
+    font-size: 17px;
+
+    transition:
+        transform 0.3s ease,
+        color 0.3s ease;
+}
+
+.museum-button:hover {
+    background: var(--archive-gold);
+
+    color: #050505;
+}
+
+.museum-button:hover span {
+    color: #050505;
+
+    transform: translateX(5px);
+}
+
+.museum-button.secondary {
+    border-color: rgba(244, 241, 234, 0.25);
+}
+
+.museum-button.secondary:hover {
+    border-color: var(--archive-gold);
+}
+
+
+/* =========================================================
+   MODAL PDF
+========================================================= */
+
+.pdf-modal {
+    position: fixed;
+    inset: 0;
+
+    z-index: 5000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.35s ease,
+        visibility 0.35s ease;
+}
+
+.pdf-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.pdf-backdrop {
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.88);
+
+    backdrop-filter: blur(12px);
+}
+
+.pdf-window {
+    position: relative;
+    z-index: 2;
+
+    width: min(1200px, 96vw);
+    height: min(900px, 92vh);
+
+    display: flex;
+    flex-direction: column;
+
+    background: #0b0b0b;
+
+    border: 1px solid rgba(201, 164, 92, 0.3);
+
+    box-shadow:
+        0 30px 100px rgba(0, 0, 0, 0.7);
+
+    transform: translateY(25px) scale(0.98);
+
+    transition:
+        transform 0.4s ease;
+}
+
+.pdf-modal.active .pdf-window {
+    transform: translateY(0) scale(1);
+}
+
+
+/* =========================================================
+   PDF HEADER
+========================================================= */
+
+.pdf-header {
+    min-height: 80px;
+
+    padding: 15px 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    border-bottom: 1px solid rgba(201, 164, 92, 0.15);
+}
+
+.pdf-title-area {
+    min-width: 0;
+}
+
+.pdf-label {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: var(--archive-gold);
+
+    font-family: "Inter", sans-serif;
+    font-size: 7px;
+    letter-spacing: 3px;
+}
+
+.pdf-title-area h2 {
+    margin: 0;
+
+    color: var(--archive-white);
+
+    font-family: "Cinzel", serif;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+#pdfCounter {
+    display: block;
+
+    margin-top: 3px;
+
+    color: #65615a;
+
+    font-family: "Inter", sans-serif;
+    font-size: 8px;
+    letter-spacing: 2px;
+}
+
+
+/* =========================================================
+   CONTROLES PDF
+========================================================= */
+
+.pdf-controls {
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+}
+
+.pdf-controls button {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(201, 164, 92, 0.25);
+
+    background: transparent;
+
+    color: var(--archive-white);
+
+    font-size: 17px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.pdf-controls button:hover:not(:disabled) {
+    background: var(--archive-gold);
+
+    border-color: var(--archive-gold);
+
+    color: #050505;
+}
+
+.pdf-controls button:disabled {
+    opacity: 0.25;
+
+    cursor: not-allowed;
+}
+
+
+/* =========================================================
+   PDF BODY
+========================================================= */
+
+.pdf-body {
+    flex: 1;
+
+    min-height: 0;
+
+    background: #171717;
+}
+
+#pdfViewer {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    border: 0;
+
+    background: #fff;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .archive-intro-content {
+        grid-template-columns:
+            160px
+            minmax(0, 1fr);
+
+        column-gap: 50px;
+    }
+
+    .section-number strong {
+        font-size: 46px;
+    }
+
+    .archive-intro-text h2 {
+        font-size: clamp(34px, 5vw, 55px);
+    }
+
+    .documents-grid {
+        grid-template-columns: 1fr;
+
+        gap: 24px;
+    }
+
+    .document-card {
+        min-height: 400px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+    .archive-hero {
+        min-height: 78vh;
+    }
+
+    .archive-hero-content {
+        padding-top: 70px;
+    }
+
+    .archive-hero h1 {
+        font-size: clamp(40px, 13vw, 65px);
+    }
+
+    .archive-hero p {
+        font-size: 13px;
+        line-height: 1.8;
+    }
+
+
+    /* -----------------------------------------
+       INTRO
+    ----------------------------------------- */
+
+    .archive-intro {
+        padding: 95px 0 110px;
+    }
+
+    .archive-intro-content {
+        width: 88%;
+
+        display: grid;
+
+        grid-template-columns:
+            100px
+            minmax(0, 1fr);
+
+        column-gap: 25px;
+    }
+
+    .section-number {
+        min-height: 280px;
+    }
+
+    .section-number strong {
+        font-size: 37px;
+    }
+
+    .section-line {
+        height: 75px;
+
+        margin-left: 6px;
+    }
+
+    .section-number small {
+        font-size: 7px;
+
+        letter-spacing: 2px;
+    }
+
+    .archive-intro-text h2 {
+        font-size: clamp(28px, 8vw, 42px);
+
+        line-height: 1.14;
+    }
+
+    .archive-intro-text p {
+        font-size: 12px;
+
+        line-height: 1.8;
+    }
+
+
+    /* -----------------------------------------
+       ACERVO
+    ----------------------------------------- */
+
+    .archive-section {
+        padding: 100px 0;
+    }
+
+    .archive-heading {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        margin-bottom: 45px;
+    }
+
+    .archive-heading h2 {
+        font-size: 35px;
+    }
+
+    .documents-grid {
+        width: 88%;
+
+        gap: 18px;
+    }
+
+    .document-card {
+        min-height: 430px;
+
+        padding: 28px;
+    }
+
+
+    /* -----------------------------------------
+       FRASE
+    ----------------------------------------- */
+
+    .archive-statement {
+        padding: 110px 0;
+    }
+
+    .statement-mark {
+        font-size: 60px;
+    }
+
+
+    /* -----------------------------------------
+       FINAL
+    ----------------------------------------- */
+
+    .archive-final {
+        padding: 110px 0 120px;
+    }
+
+    .archive-final-content h2 {
+        font-size: 40px;
+    }
+
+    .final-buttons {
+        flex-direction: column;
+    }
+
+    .museum-button {
+        width: 100%;
+
+        min-width: 0;
+    }
+
+
+    /* -----------------------------------------
+       PDF
+    ----------------------------------------- */
+
+    .pdf-modal {
+        padding: 10px;
+    }
+
+    .pdf-window {
+        width: 100%;
+        height: 94vh;
+    }
+
+    .pdf-header {
+        padding: 12px;
+    }
+
+    .pdf-title-area h2 {
+        max-width: 190px;
+
+        font-size: 14px;
+    }
+
+    .pdf-controls button {
+        width: 34px;
+        height: 34px;
+    }
+}
+
+
+/* =========================================================
+   ACESSIBILIDADE
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .archive-loader-line {
+        animation: none;
+    }
+
+    .document-card,
+    .pdf-window,
+    .museum-button,
+    .document-button,
+    .document-icon {
+        transition: none;
+    }
+}
+
+
+/* =========================================================
+   IMPRESSÃO
+========================================================= */
+
+@media print {
+
+    .archive-loader,
+    .site-header,
+    .pdf-modal,
+    .hero-scroll,
+    .final-buttons {
+        display: none !important;
+    }
+
+    .archive-page {
+        background: #fff;
+        color: #000;
+    }
+
+    .archive-hero,
+    .archive-intro,
+    .archive-section,
+    .archive-final {
+        background: #fff;
+        color: #000;
+    }
+}

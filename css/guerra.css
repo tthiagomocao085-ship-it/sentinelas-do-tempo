@@ -1,0 +1,2261 @@
+/* =========================================================
+   SENTINELAS DO TEMPO
+   A GUERRA DO PARAGUAI
+   CSS REMASTERIZADO
+   ========================================================= */
+
+
+/* =========================================================
+   VARIÁVEIS
+   ========================================================= */
+
+.war-page {
+
+    --black: #050505;
+    --black-2: #090909;
+    --black-3: #0d0d0d;
+
+    --white: #eee9df;
+    --white-soft: #c7c0b5;
+
+    --gray: #777169;
+    --gray-dark: #4c4944;
+
+    --gold: #c9a45c;
+    --gold-soft: #9f8048;
+
+    --line: rgba(201, 164, 92, .22);
+
+    background: var(--black);
+
+    color: var(--white);
+
+    font-family: "Inter", sans-serif;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   RESET DA PÁGINA
+   ========================================================= */
+
+.war-page *,
+.war-page *::before,
+.war-page *::after {
+    box-sizing: border-box;
+}
+
+
+.war-page h1,
+.war-page h2,
+.war-page h3,
+.war-page p {
+    margin-top: 0;
+}
+
+
+.war-page a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+.war-page img {
+    display: block;
+    max-width: 100%;
+}
+
+
+.content-container {
+
+    width: min(
+        1200px,
+        calc(100% - 10vw)
+    );
+
+    margin-inline: auto;
+}
+
+
+.gold-label {
+
+    display: block;
+
+    color: var(--gold);
+
+    font-size: .55rem;
+
+    letter-spacing: .25em;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   LOADER
+   ========================================================= */
+
+.page-loader {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 99999;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(201,164,92,.06),
+            transparent 35%
+        ),
+
+        #050505;
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transition:
+        opacity .8s ease,
+        visibility .8s ease;
+}
+
+
+.page-loader.hidden {
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+}
+
+
+.loader-inner {
+
+    width: min(
+        500px,
+        85%
+    );
+
+    text-align: center;
+}
+
+
+.loader-brand {
+
+    color: var(--gold);
+
+    font-size: .60rem;
+
+    letter-spacing: .38em;
+}
+
+
+.loader-line {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 1px;
+
+    margin: 27px 0;
+
+    overflow: hidden;
+
+    background:
+        rgba(255,255,255,.12);
+}
+
+
+.loader-line span {
+
+    position: absolute;
+
+    inset: 0;
+
+    transform-origin: left;
+
+    background: var(--gold);
+
+    animation:
+        loaderProgress 2s
+        ease forwards;
+}
+
+
+.loader-inner h1 {
+
+    margin: 0 0 10px;
+
+    color: var(--white);
+
+    font-family: "Cinzel", serif;
+
+    font-size:
+        clamp(
+            2.5rem,
+            7vw,
+            5rem
+        );
+
+    font-weight: 500;
+
+    letter-spacing: .04em;
+}
+
+
+.loader-inner small {
+
+    color: #66615a;
+
+    font-size: .50rem;
+
+    letter-spacing: .25em;
+}
+
+
+@keyframes loaderProgress {
+
+    from {
+        transform: scaleX(0);
+    }
+
+    to {
+        transform: scaleX(1);
+    }
+
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.war-header {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    z-index: 1000;
+
+    height: 82px;
+
+    padding:
+        0 5vw;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.05);
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0,0,0,.92),
+            rgba(0,0,0,.15)
+        );
+
+    backdrop-filter:
+        blur(9px);
+}
+
+
+/* LOGO */
+
+.war-logo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+.logo-symbol {
+
+    width: 39px;
+    height: 39px;
+
+    display: grid;
+
+    place-items: center;
+
+    border:
+        1px solid
+        rgba(201,164,92,.55);
+
+    color: var(--gold);
+
+    font-family: "Cinzel", serif;
+
+    font-size: .70rem;
+}
+
+
+.logo-text {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 2px;
+}
+
+
+.logo-text strong {
+
+    font-family: "Cinzel", serif;
+
+    font-size: .69rem;
+
+    font-weight: 500;
+
+    letter-spacing: .18em;
+}
+
+
+.logo-text small {
+
+    color: #68635c;
+
+    font-size: .45rem;
+
+    letter-spacing: .30em;
+}
+
+
+/* NAVEGAÇÃO */
+
+.war-nav {
+
+    display: flex;
+
+    align-items: center;
+
+    gap:
+        clamp(
+            18px,
+            2.5vw,
+            34px
+        );
+}
+
+
+.war-nav a {
+
+    position: relative;
+
+    padding: 31px 0;
+
+    color:
+        rgba(255,255,255,.54);
+
+    font-size: .57rem;
+
+    letter-spacing: .15em;
+
+    text-transform: uppercase;
+
+    transition:
+        color .3s ease;
+}
+
+
+.war-nav a::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: 22px;
+
+    width: 0;
+
+    height: 1px;
+
+    background: var(--gold);
+
+    transition:
+        width .3s ease;
+}
+
+
+.war-nav a:hover,
+.war-nav a.active {
+
+    color: #fff;
+}
+
+
+.war-nav a:hover::after,
+.war-nav a.active::after {
+
+    width: 100%;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.war-hero {
+
+    position: relative;
+
+    min-height: 100vh;
+
+    min-height: 100svh;
+
+    display: flex;
+
+    align-items: center;
+
+    overflow: hidden;
+
+    background: #050505;
+}
+
+
+/* IMAGEM */
+
+.hero-background {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        url("../images/guerra.jpg")
+        center center /
+        cover
+        no-repeat;
+
+    transform:
+        scale(1.02);
+
+    animation:
+        heroImage 2s
+        ease forwards;
+}
+
+
+/* ESCURECIMENTO */
+
+.hero-dark {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        linear-gradient(
+            90deg,
+
+            rgba(0,0,0,.99)
+            0%,
+
+            rgba(0,0,0,.94)
+            18%,
+
+            rgba(0,0,0,.70)
+            42%,
+
+            rgba(0,0,0,.25)
+            68%,
+
+            rgba(0,0,0,.55)
+            100%
+        ),
+
+        linear-gradient(
+            to bottom,
+
+            rgba(0,0,0,.25),
+
+            transparent 45%,
+
+            rgba(0,0,0,.85)
+        );
+}
+
+
+/* CONTAINER */
+
+.hero-container {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: min(
+        1200px,
+        calc(100% - 10vw)
+    );
+
+    margin-inline: auto;
+
+    padding-top: 70px;
+}
+
+
+/* CONTEÚDO */
+
+.hero-content {
+
+    width: min(
+        720px,
+        100%
+    );
+
+    animation:
+        heroContent 1.2s
+        .2s
+        ease
+        both;
+}
+
+
+/* KICKER */
+
+.hero-kicker {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    color: var(--gold);
+}
+
+
+.hero-kicker span {
+
+    width: 45px;
+
+    height: 1px;
+
+    background: var(--gold);
+}
+
+
+.hero-kicker small {
+
+    font-size: .57rem;
+
+    letter-spacing: .29em;
+}
+
+
+/* TÍTULO */
+
+.hero-content h1 {
+
+    margin:
+        27px 0 25px;
+
+    color: var(--white);
+
+    font-family: "Cinzel", serif;
+
+    font-size:
+        clamp(
+            3.5rem,
+            7.5vw,
+            7.3rem
+        );
+
+    font-weight: 500;
+
+    line-height: .91;
+
+    letter-spacing: -.04em;
+
+    text-shadow:
+        0 18px 50px
+        rgba(0,0,0,.75);
+}
+
+
+.hero-content h1 span {
+
+    display: block;
+
+    color: #aaa49a;
+}
+
+
+/* DESCRIÇÃO */
+
+.hero-description {
+
+    width: min(
+        580px,
+        100%
+    );
+
+    margin: 0;
+
+    color:
+        rgba(255,255,255,.67);
+
+    font-size: .91rem;
+
+    font-weight: 300;
+
+    line-height: 1.9;
+}
+
+
+/* DATAS */
+
+.hero-dates {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 22px;
+
+    margin-top: 34px;
+}
+
+
+.hero-dates div {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+
+.hero-dates strong {
+
+    color: #ded6c8;
+
+    font-family: "Cinzel", serif;
+
+    font-size: 1rem;
+
+    font-weight: 500;
+}
+
+
+.hero-dates small {
+
+    color: #69645d;
+
+    font-size: .43rem;
+
+    letter-spacing: .20em;
+}
+
+
+.hero-dates > span {
+
+    width: 35px;
+
+    height: 1px;
+
+    background:
+        rgba(201,164,92,.35);
+}
+
+
+/* BOTÃO HERO */
+
+.hero-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    margin-top: 43px;
+
+    padding:
+        14px 18px;
+
+    border:
+        1px solid
+        rgba(201,164,92,.50);
+
+    color:
+        rgba(255,255,255,.70);
+
+    font-size: .53rem;
+
+    letter-spacing: .20em;
+
+    transition:
+        .3s ease;
+}
+
+
+.hero-button strong {
+
+    color: var(--gold);
+
+    font-size: 1rem;
+
+    font-weight: 400;
+}
+
+
+.hero-button:hover {
+
+    background: var(--gold);
+
+    border-color: var(--gold);
+
+    color: #080706;
+
+    transform:
+        translateY(-3px);
+}
+
+
+.hero-button:hover strong {
+
+    color: #080706;
+}
+
+
+/* TEXTO LATERAL */
+
+.hero-side-text {
+
+    position: absolute;
+
+    right: 30px;
+
+    bottom: 35px;
+
+    writing-mode:
+        vertical-rl;
+
+    color:
+        rgba(255,255,255,.20);
+
+    font-size: .43rem;
+
+    letter-spacing: .30em;
+}
+
+
+.hero-side-text span {
+
+    margin:
+        8px 0;
+}
+
+
+/* ANIMAÇÕES */
+
+@keyframes heroImage {
+
+    from {
+        opacity: 0;
+        transform: scale(1.08);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.02);
+    }
+
+}
+
+
+@keyframes heroContent {
+
+    from {
+        opacity: 0;
+        transform:
+            translateX(-35px);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateX(0);
+    }
+
+}
+
+
+/* =========================================================
+   CONTEXTO
+   ========================================================= */
+
+.context-section {
+
+    padding:
+        150px 0
+        165px;
+
+    background:
+
+        radial-gradient(
+            circle at 80% 30%,
+            rgba(201,164,92,.055),
+            transparent 32%
+        ),
+
+        var(--black);
+}
+
+
+.section-top {
+
+    display: grid;
+
+    grid-template-columns:
+        145px
+        1fr;
+
+    gap: 70px;
+}
+
+
+/* NÚMERO */
+
+.section-number strong {
+
+    display: block;
+
+    color:
+        rgba(201,164,92,.35);
+
+    font-family: "Cinzel", serif;
+
+    font-size: 4.1rem;
+
+    font-weight: 400;
+
+    line-height: 1;
+}
+
+
+.section-number span {
+
+    display: block;
+
+    width: 55px;
+
+    height: 1px;
+
+    margin: 20px 0;
+
+    background: var(--line);
+}
+
+
+.section-number small {
+
+    color: #625e57;
+
+    font-size: .48rem;
+
+    line-height: 1.7;
+
+    letter-spacing: .19em;
+}
+
+
+/* TÍTULO */
+
+.section-title h2 {
+
+    margin:
+        18px 0 0;
+
+    font-family: "Cinzel", serif;
+
+    font-size:
+        clamp(
+            2.5rem,
+            5vw,
+            4.7rem
+        );
+
+    font-weight: 500;
+
+    line-height: 1.04;
+}
+
+
+.section-title h2 span {
+
+    display: block;
+
+    color: #8e8981;
+}
+
+
+/* TEXTO */
+
+.context-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1.1fr
+        .9fr;
+
+    gap: 90px;
+
+    margin-top: 75px;
+
+    padding-left: 215px;
+}
+
+
+.context-main p {
+
+    margin: 0;
+
+    color: #d4cec3;
+
+    font-family: "Cinzel", serif;
+
+    font-size:
+        clamp(
+            1.15rem,
+            2vw,
+            1.50rem
+        );
+
+    line-height: 1.65;
+}
+
+
+.context-side > span {
+
+    display: block;
+
+    margin-bottom: 17px;
+
+    color: var(--gold);
+
+    font-size: .52rem;
+
+    letter-spacing: .23em;
+}
+
+
+.context-side p {
+
+    margin-bottom: 20px;
+
+    color: #807b73;
+
+    font-size: .86rem;
+
+    line-height: 1.9;
+}
+
+
+/* =========================================================
+   TIMELINE
+   ========================================================= */
+
+.timeline-section {
+
+    padding:
+        145px 0
+        160px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #080808,
+            #0b0b0b
+        );
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.035);
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.035);
+}
+
+
+.timeline-header {
+
+    width: min(
+        760px,
+        100%
+    );
+
+    margin-bottom: 90px;
+}
+
+
+.timeline-header h2 {
+
+    margin:
+        18px 0;
+
+    font-family: "Cinzel", serif;
+
+    font-size:
+        clamp(
+            2.4rem,
+            4.8vw,
+            4.5rem
+        );
+
+    font-weight: 500;
+
+    line-height: 1.05;
+}
+
+
+.timeline-header h2 span {
+
+    display: block;
+
+    color: #8f8a82;
+}
+
+
+.timeline-header p {
+
+    max-width: 550px;
+
+    color: #6d6962;
+
+    font-size: .85rem;
+
+    line-height: 1.8;
+}
+
+
+/* LINHA */
+
+.timeline {
+
+    position: relative;
+}
+
+
+.timeline::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 5px;
+
+    bottom: 5px;
+
+    left: 111px;
+
+    width: 1px;
+
+    background:
+
+        linear-gradient(
+            to bottom,
+
+            transparent,
+
+            rgba(201,164,92,.40)
+            7%,
+
+            rgba(201,164,92,.17)
+            93%,
+
+            transparent
+        );
+}
+
+
+/* ITEM */
+
+.timeline-card {
+
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns:
+        70px
+        155px
+        minmax(0, 650px);
+
+    gap: 40px;
+
+    min-height: 175px;
+
+    padding-bottom: 65px;
+}
+
+
+.timeline-card:last-child {
+
+    padding-bottom: 0;
+}
+
+
+/* MARCADOR */
+
+.timeline-marker {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 15px;
+
+    height: 15px;
+
+    margin: 3px auto 0;
+
+    display: grid;
+
+    place-items: center;
+
+    border:
+        1px solid
+        var(--gold);
+
+    border-radius: 50%;
+
+    background: #080808;
+}
+
+
+.timeline-marker span {
+
+    position: absolute;
+
+    left: 28px;
+
+    color: #514d47;
+
+    font-size: .45rem;
+
+    letter-spacing: .10em;
+}
+
+
+/* ANO */
+
+.timeline-year {
+
+    color:
+        rgba(201,164,92,.76);
+
+    font-family: "Cinzel", serif;
+
+    font-size:
+        clamp(
+            2rem,
+            3.7vw,
+            3.2rem
+        );
+
+    line-height: 1;
+}
+
+
+/* CONTEÚDO */
+
+.timeline-info small {
+
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: var(--gold);
+
+    font-size: .48rem;
+
+    letter-spacing: .20em;
+}
+
+
+.timeline-info h3 {
+
+    margin-bottom: 11px;
+
+    color: #e4ded3;
+
+    font-family: "Cinzel", serif;
+
+    font-size: 1.42rem;
+
+    font-weight: 500;
+}
+
+
+.timeline-info p {
+
+    max-width: 570px;
+
+    margin: 0;
+
+    color: #77726b;
+
+    font-size: .83rem;
+
+    line-height: 1.85;
+}
+
+
+/* =========================================================
+   MEMÓRIA
+   ========================================================= */
+
+.memory-section {
+
+    position: relative;
+
+    min-height: 75vh;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    overflow: hidden;
+}
+
+
+.memory-image {
+
+    position: absolute;
+
+    inset: 0;
+}
+
+
+.memory-image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    min-height: 75vh;
+
+    object-fit: cover;
+
+    filter:
+        brightness(.56)
+        saturate(.72)
+        contrast(1.06);
+}
+
+
+.memory-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,.88),
+            rgba(0,0,0,.22)
+            62%,
+            rgba(0,0,0,.58)
+        ),
+
+        linear-gradient(
+            to top,
+            rgba(0,0,0,.94),
+            transparent 65%
+        );
+}
+
+
+.memory-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: min(
+        1200px,
+        calc(100% - 10vw)
+    );
+
+    margin-inline: auto;
+
+    padding-bottom: 100px;
+}
+
+
+.memory-content h2 {
+
+    width: min(
+        750px,
+        100%
+    );
+
+    margin:
+        18px 0;
+
+    font-family: "Cinzel", serif;
+
+    font-size:
+        clamp(
+            2.6rem,
+            5vw,
+            5rem
+        );
+
+    font-weight: 500;
+
+    line-height: 1;
+}
+
+
+.memory-content h2 span {
+
+    display: block;
+
+    color: #aaa39a;
+}
+
+
+.memory-content p {
+
+    max-width: 500px;
+
+    margin: 0;
+
+    color:
+        rgba(255,255,255,.62);
+
+    font-size: .87rem;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   TERRITÓRIO / MATO GROSSO
+   ========================================================= */
+
+.territory-section {
+
+    padding:
+        150px 0;
+
+    background:
+
+        radial-gradient(
+            circle at 20% 50%,
+            rgba(201,164,92,.045),
+            transparent 28%
+        ),
+
+        var(--black);
+}
+
+
+/* LABEL */
+
+.chapter-label {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin-bottom: 50px;
+}
+
+
+.chapter-label strong {
+
+    color:
+        rgba(201,164,92,.50);
+
+    font-family: "Cinzel", serif;
+
+    font-size: 2.3rem;
+
+    font-weight: 400;
+}
+
+
+.chapter-label span {
+
+    width: 50px;
+
+    height: 1px;
+
+    background: var(--line);
+}
+
+
+.chapter-label small {
+
+    color: #5f5a53;
+
+    font-size: .47rem;
+
+    letter-spacing: .23em;
+}
+
+
+/* GRID */
+
+.territory-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0,1fr)
+        minmax(0,.9fr);
+
+    gap: 90px;
+
+    align-items: center;
+}
+
+
+/* IMAGEM */
+
+.territory-image {
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+.territory-image img {
+
+    width: 100%;
+
+    height: 570px;
+
+    object-fit: cover;
+
+    filter:
+        brightness(.64)
+        saturate(.76);
+}
+
+
+.image-frame {
+
+    position: absolute;
+
+    inset: 18px;
+
+    border:
+        1px solid
+        rgba(201,164,92,.25);
+
+    pointer-events: none;
+}
+
+
+.image-caption {
+
+    position: absolute;
+
+    left: 32px;
+
+    bottom: 28px;
+
+    z-index: 2;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+.image-caption span {
+
+    color: var(--gold);
+
+    font-family: "Cinzel", serif;
+}
+
+
+.image-caption small {
+
+    color:
+        rgba(255,255,255,.60);
+
+    font-size: .45rem;
+
+    letter-spacing: .20em;
+}
+
+
+/* TEXTO */
+
+.territory-text {
+
+    max-width: 570px;
+}
+
+
+.territory-text h2 {
+
+    margin:
+        18px 0 25px;
+
+    font-family: "Cinzel", serif;
+
+    font-size:
+        clamp(
+            2.4rem,
+            4.5vw,
+            4.3rem
+        );
+
+    font-weight: 500;
+
+    line-height: 1.05;
+}
+
+
+.territory-text h2 span {
+
+    display: block;
+
+    color: #918c84;
+}
+
+
+.gold-line {
+
+    width: 60px;
+
+    height: 1px;
+
+    margin-bottom: 24px;
+
+    background: var(--gold);
+}
+
+
+.territory-text p {
+
+    margin:
+        0 0 18px;
+
+    color: #77736c;
+
+    font-size: .88rem;
+
+    line-height: 1.9;
+}
+
+
+.territory-text .territory-lead {
+
+    color: #c6bfb3;
+
+    font-size: .97rem;
+}
+
+
+/* =========================================================
+   BOTÃO
+   ========================================================= */
+
+.museum-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 35px;
+
+    min-width: 240px;
+
+    margin-top: 15px;
+
+    padding:
+        15px 18px;
+
+    border:
+        1px solid
+        rgba(201,164,92,.50);
+
+    color:
+        rgba(255,255,255,.72);
+
+    font-size: .53rem;
+
+    letter-spacing: .15em;
+
+    transition:
+        .3s ease;
+}
+
+
+.museum-button strong {
+
+    color: var(--gold);
+
+    font-size: 1rem;
+
+    font-weight: 400;
+}
+
+
+.museum-button:hover {
+
+    background: var(--gold);
+
+    border-color: var(--gold);
+
+    color: #080706;
+
+    transform:
+        translateY(-3px);
+}
+
+
+.museum-button:hover strong {
+
+    color: #080706;
+}
+
+
+/* =========================================================
+   PRÓXIMO CAPÍTULO
+   ========================================================= */
+
+.next-chapter {
+
+    position: relative;
+
+    min-height: 80vh;
+
+    display: grid;
+
+    place-items: center;
+
+    overflow: hidden;
+
+    text-align: center;
+}
+
+
+.next-background {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        url("../images/forte-coimbra.jpg")
+        center /
+        cover
+        no-repeat;
+}
+
+
+.next-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        linear-gradient(
+            rgba(0,0,0,.65),
+            rgba(0,0,0,.90)
+        ),
+
+        radial-gradient(
+            circle,
+            rgba(201,164,92,.09),
+            transparent 45%
+        );
+}
+
+
+.next-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: min(
+        800px,
+        calc(100% - 10vw)
+    );
+}
+
+
+.chapter-number {
+
+    margin:
+        20px 0 -5px;
+
+    color:
+        rgba(201,164,92,.40);
+
+    font-family: "Cinzel", serif;
+
+    font-size: 5rem;
+}
+
+
+.next-content h2 {
+
+    margin: 0 0 18px;
+
+    font-family: "Cinzel", serif;
+
+    font-size:
+        clamp(
+            3rem,
+            6vw,
+            6rem
+        );
+
+    font-weight: 500;
+
+    line-height: .95;
+}
+
+
+.next-content h2 span {
+
+    color: #aaa39a;
+}
+
+
+.next-content p {
+
+    width: min(
+        500px,
+        100%
+    );
+
+    margin:
+        0 auto 25px;
+
+    color:
+        rgba(255,255,255,.62);
+
+    font-size: .88rem;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.war-footer {
+
+    padding:
+        70px 5vw 25px;
+
+    background: #030303;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.06);
+}
+
+
+.footer-main {
+
+    width: min(
+        1200px,
+        100%
+    );
+
+    margin-inline: auto;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 50px;
+}
+
+
+.footer-brand,
+.footer-info {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+.footer-brand strong {
+
+    color: #dcd4c7;
+
+    font-family: "Cinzel", serif;
+
+    font-size: .69rem;
+
+    font-weight: 500;
+
+    letter-spacing: .20em;
+}
+
+
+.footer-brand span {
+
+    color: #55514b;
+
+    font-size: .56rem;
+
+    letter-spacing: .10em;
+}
+
+
+.footer-info {
+
+    align-items: flex-end;
+}
+
+
+.footer-info span {
+
+    color: #756c5c;
+
+    font-size: .56rem;
+
+    letter-spacing: .12em;
+}
+
+
+.footer-info small {
+
+    color: #45413d;
+
+    font-size: .46rem;
+
+    letter-spacing: .14em;
+}
+
+
+.footer-bottom {
+
+    width: min(
+        1200px,
+        100%
+    );
+
+    margin:
+        42px auto 0;
+
+    padding-top: 17px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.05);
+
+    color: #3d3935;
+
+    font-size: .46rem;
+
+    letter-spacing: .13em;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 950px) {
+
+
+    .war-nav {
+        display: none;
+    }
+
+
+    .section-top {
+
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+    }
+
+
+    .section-number {
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 20px;
+    }
+
+
+    .section-number strong {
+
+        font-size: 3rem;
+    }
+
+
+    .section-number span {
+
+        width: 45px;
+
+        margin: 0;
+    }
+
+
+    .context-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+
+        padding-left: 0;
+    }
+
+
+    .territory-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 60px;
+    }
+
+
+    .territory-text {
+
+        max-width: 700px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+
+    .content-container {
+
+        width:
+            calc(100% - 40px);
+    }
+
+
+    .war-header {
+
+        height: 70px;
+
+        padding:
+            0 20px;
+    }
+
+
+    .hero-container {
+
+        width:
+            calc(100% - 40px);
+
+        padding-top: 50px;
+    }
+
+
+    .hero-background {
+
+        background-position:
+            64% center;
+    }
+
+
+    .hero-content h1 {
+
+        font-size:
+            clamp(
+                3rem,
+                14vw,
+                5rem
+            );
+    }
+
+
+    .hero-description {
+
+        font-size: .84rem;
+    }
+
+
+    .hero-side-text {
+
+        display: none;
+    }
+
+
+    .context-section,
+    .timeline-section,
+    .territory-section {
+
+        padding:
+            100px 0
+            105px;
+    }
+
+
+    .section-title h2,
+    .timeline-header h2 {
+
+        font-size: 2.5rem;
+    }
+
+
+    .context-main p {
+
+        font-size: 1.1rem;
+    }
+
+
+    /* TIMELINE MOBILE */
+
+    .timeline::before {
+
+        left: 13px;
+    }
+
+
+    .timeline-card {
+
+        display: block;
+
+        min-height: auto;
+
+        padding:
+            0 0 60px 38px;
+    }
+
+
+    .timeline-marker {
+
+        position: absolute;
+
+        left: 6px;
+
+        top: 5px;
+
+        width: 14px;
+
+        height: 14px;
+
+        margin: 0;
+    }
+
+
+    .timeline-marker span {
+
+        display: none;
+    }
+
+
+    .timeline-year {
+
+        font-size: 2.3rem;
+    }
+
+
+    .timeline-info {
+
+        margin-top: 10px;
+    }
+
+
+    /* MEMÓRIA */
+
+    .memory-section {
+
+        min-height: 64vh;
+    }
+
+
+    .memory-image img {
+
+        min-height: 64vh;
+    }
+
+
+    .memory-content {
+
+        width:
+            calc(100% - 40px);
+
+        padding-bottom: 70px;
+    }
+
+
+    .memory-content h2 {
+
+        font-size: 2.6rem;
+    }
+
+
+    /* FORTE COIMBRA */
+
+    .territory-image img {
+
+        height: 390px;
+    }
+
+
+    /* PRÓXIMO */
+
+    .next-chapter {
+
+        min-height: 70vh;
+    }
+
+
+    .next-content h2 {
+
+        font-size: 3.2rem;
+    }
+
+
+    /* FOOTER */
+
+    .footer-main,
+    .footer-bottom {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+
+    .footer-info {
+
+        align-items: flex-start;
+    }
+
+}
+
+
+/* =========================================================
+   CELULARES PEQUENOS
+   ========================================================= */
+
+@media (max-width: 450px) {
+
+
+    .logo-symbol {
+
+        width: 34px;
+        height: 34px;
+    }
+
+
+    .logo-text strong {
+
+        font-size: .58rem;
+    }
+
+
+    .hero-kicker small {
+
+        font-size: .48rem;
+    }
+
+
+    .hero-dates {
+
+        gap: 15px;
+    }
+
+
+    .museum-button {
+
+        width: 100%;
+
+        justify-content:
+            space-between;
+    }
+
+
+    .chapter-label {
+
+        margin-bottom: 35px;
+    }
+
+}
+
+
+/* =========================================================
+   ACESSIBILIDADE / REDUÇÃO DE MOVIMENTO
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .war-page *,
+    .war-page *::before,
+    .war-page *::after {
+
+        animation-duration:
+            .01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            .01ms !important;
+
+        scroll-behavior:
+            auto !important;
+    }
+
+}

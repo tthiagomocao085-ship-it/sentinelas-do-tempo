@@ -1,0 +1,1294 @@
+/* =========================================================
+   SENTINELAS DO TEMPO
+   CSS GLOBAL — INDEX / MUSEU DIGITAL
+========================================================= */
+
+
+/* =========================================================
+   VARIÁVEIS
+========================================================= */
+
+:root {
+    --black: #050505;
+    --black-soft: #0b0b0b;
+    --black-medium: #111111;
+
+    --gold: #c9a45c;
+    --gold-light: #e0c17a;
+    --gold-dark: #8f7137;
+
+    --white: #f4f1ea;
+    --gray: #a7a39b;
+    --gray-dark: #66635d;
+
+    --line: rgba(201, 164, 92, 0.25);
+
+    --header-height: 82px;
+
+    --font-title: "Cinzel", serif;
+    --font-body: "Inter", sans-serif;
+
+    --transition: 0.35s ease;
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--black);
+    color: var(--white);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+}
+
+body.loading {
+    overflow: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+::selection {
+    background: var(--gold);
+    color: var(--black);
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--gold-dark);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--gold);
+}
+
+
+/* =========================================================
+   LOADER
+========================================================= */
+
+#loader {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(201, 164, 92, 0.08),
+            transparent 35%
+        ),
+        #050505;
+
+    opacity: 1;
+    visibility: visible;
+
+    transition:
+        opacity 0.9s ease,
+        visibility 0.9s ease;
+}
+
+#loader.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.loader-content {
+    width: min(90%, 600px);
+    text-align: center;
+
+    animation: loaderAppear 1.2s ease forwards;
+}
+
+.loader-symbol {
+    width: 70px;
+    height: 70px;
+
+    margin: 0 auto 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--gold);
+
+    color: var(--gold);
+
+    font-family: var(--font-title);
+    font-size: 20px;
+    letter-spacing: 4px;
+}
+
+.loader-small {
+    color: var(--gray);
+    font-size: 10px;
+    letter-spacing: 5px;
+    margin-bottom: 18px;
+}
+
+.loader-content h1 {
+    font-family: var(--font-title);
+    font-size: clamp(30px, 5vw, 60px);
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: 5px;
+}
+
+.loader-content h1 span {
+    color: var(--gold);
+}
+
+.loader-line {
+    width: 180px;
+    height: 1px;
+
+    margin: 28px auto;
+
+    background: var(--gold);
+
+    transform-origin: center;
+
+    animation: loaderLine 1.8s ease infinite;
+}
+
+.loader-status {
+    color: var(--gray);
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+.author-credit {
+    position: absolute;
+
+    bottom: 28px;
+    right: 35px;
+
+    color: rgba(255, 255, 255, 0.4);
+
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+@keyframes loaderAppear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes loaderLine {
+    0%,
+    100% {
+        transform: scaleX(0.35);
+        opacity: 0.4;
+    }
+
+    50% {
+        transform: scaleX(1);
+        opacity: 1;
+    }
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: var(--header-height);
+
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 5vw;
+
+    border-bottom: 1px solid transparent;
+
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.65),
+        transparent
+    );
+
+    transition:
+        background 0.4s ease,
+        border-color 0.4s ease,
+        backdrop-filter 0.4s ease;
+}
+
+.site-header.scrolled {
+    background: rgba(5, 5, 5, 0.94);
+    border-color: var(--line);
+
+    backdrop-filter: blur(15px);
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    flex-shrink: 0;
+}
+
+.logo > span {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--gold);
+
+    color: var(--gold);
+
+    font-family: var(--font-title);
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+.logo strong,
+.logo small {
+    display: block;
+}
+
+.logo strong {
+    font-family: var(--font-title);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.logo small {
+    margin-top: 2px;
+
+    color: var(--gold);
+
+    font-size: 8px;
+    letter-spacing: 4px;
+}
+
+
+/* =========================================================
+   NAVEGAÇÃO
+========================================================= */
+
+.site-header nav {
+    display: flex;
+    align-items: center;
+    gap: clamp(12px, 2vw, 30px);
+}
+
+.site-header nav a {
+    position: relative;
+
+    color: rgba(244, 241, 234, 0.72);
+
+    font-size: 10px;
+    font-weight: 500;
+
+    letter-spacing: 1.4px;
+
+    padding: 10px 0;
+
+    transition: color var(--transition);
+}
+
+.site-header nav a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: 2px;
+
+    width: 0;
+    height: 1px;
+
+    background: var(--gold);
+
+    transition: width var(--transition);
+}
+
+.site-header nav a:hover,
+.site-header nav a.active {
+    color: var(--white);
+}
+
+.site-header nav a:hover::after,
+.site-header nav a.active::after {
+    width: 100%;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    position: relative;
+
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.82) 0%,
+            rgba(0, 0, 0, 0.48) 45%,
+            rgba(0, 0, 0, 0.62) 100%
+        ),
+        url("../images/forte-coimbra.jpg") center center / cover no-repeat;
+
+    isolation: isolate;
+}
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.3),
+            transparent 45%,
+            rgba(0, 0, 0, 0.8)
+        );
+
+    z-index: -1;
+}
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 70% 45%,
+            rgba(201, 164, 92, 0.12),
+            transparent 30%
+        );
+
+    pointer-events: none;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.4),
+            transparent
+        );
+
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+
+    width: min(1100px, 90%);
+
+    margin: 0 auto;
+
+    padding-top: 70px;
+}
+
+.eyebrow {
+    color: var(--gold);
+
+    font-size: 10px;
+    letter-spacing: 5px;
+
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-family: var(--font-title);
+
+    font-size: clamp(55px, 9vw, 125px);
+
+    font-weight: 500;
+
+    line-height: 0.92;
+
+    letter-spacing: 4px;
+
+    text-shadow:
+        0 10px 40px rgba(0, 0, 0, 0.6);
+}
+
+.hero h1 span {
+    color: var(--gold);
+}
+
+.hero-description {
+    max-width: 600px;
+
+    margin-top: 35px;
+
+    color: rgba(244, 241, 234, 0.78);
+
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+
+    margin-top: 38px;
+
+    flex-wrap: wrap;
+}
+
+
+/* =========================================================
+   BOTÕES
+========================================================= */
+
+.gold-button,
+.outline-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    min-height: 52px;
+
+    padding: 0 25px;
+
+    font-size: 10px;
+    font-weight: 600;
+
+    letter-spacing: 2px;
+
+    transition:
+        transform var(--transition),
+        background var(--transition),
+        color var(--transition),
+        border-color var(--transition);
+}
+
+.gold-button {
+    background: var(--gold);
+    color: var(--black);
+
+    border: 1px solid var(--gold);
+}
+
+.gold-button span {
+    font-size: 17px;
+    transition: transform var(--transition);
+}
+
+.gold-button:hover {
+    background: var(--gold-light);
+    transform: translateY(-3px);
+}
+
+.gold-button:hover span {
+    transform: translateX(5px);
+}
+
+.outline-button {
+    border: 1px solid rgba(244, 241, 234, 0.35);
+    color: var(--white);
+}
+
+.outline-button:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   INDICADOR DE SCROLL
+========================================================= */
+
+.scroll-indicator {
+    position: absolute;
+
+    left: 50%;
+    bottom: 35px;
+
+    transform: translateX(-50%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 12px;
+
+    color: rgba(244, 241, 234, 0.55);
+
+    font-size: 8px;
+    letter-spacing: 3px;
+}
+
+.scroll-indicator div {
+    width: 1px;
+    height: 45px;
+
+    background: var(--gold);
+
+    animation: scrollLine 2s ease-in-out infinite;
+}
+
+@keyframes scrollLine {
+    0%,
+    100% {
+        transform: scaleY(0.35);
+        transform-origin: top;
+        opacity: 0.3;
+    }
+
+    50% {
+        transform: scaleY(1);
+        opacity: 1;
+    }
+}
+
+
+/* =========================================================
+   SEÇÕES GERAIS
+========================================================= */
+
+.intro-section,
+.experience-section {
+    position: relative;
+
+    padding: 150px 7vw;
+}
+
+.section-number {
+    position: absolute;
+
+    top: 70px;
+    left: 7vw;
+
+    color: rgba(201, 164, 92, 0.25);
+
+    font-family: var(--font-title);
+
+    font-size: 90px;
+
+    line-height: 1;
+
+    pointer-events: none;
+}
+
+.section-label {
+    color: var(--gold);
+
+    font-size: 9px;
+    font-weight: 600;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.intro-section {
+    background:
+        radial-gradient(
+            circle at 15% 50%,
+            rgba(201, 164, 92, 0.05),
+            transparent 30%
+        ),
+        var(--black);
+}
+
+.intro-grid {
+    position: relative;
+    z-index: 2;
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 90px;
+}
+
+.intro-grid h2 {
+    max-width: 550px;
+
+    font-family: var(--font-title);
+
+    font-size: clamp(30px, 4vw, 53px);
+
+    font-weight: 400;
+
+    line-height: 1.2;
+}
+
+.intro-grid h2 span {
+    display: block;
+
+    color: var(--gold);
+}
+
+.intro-text {
+    padding-top: 25px;
+}
+
+.intro-text p {
+    color: var(--gray);
+
+    font-size: 14px;
+
+    line-height: 1.9;
+
+    margin-bottom: 22px;
+}
+
+.text-link {
+    display: inline-block;
+
+    margin-top: 15px;
+
+    color: var(--gold);
+
+    font-size: 10px;
+    font-weight: 600;
+
+    letter-spacing: 2px;
+
+    border-bottom: 1px solid transparent;
+
+    transition:
+        border-color var(--transition),
+        transform var(--transition);
+}
+
+.text-link:hover {
+    border-color: var(--gold);
+
+    transform: translateX(5px);
+}
+
+
+/* =========================================================
+   FORTE COIMBRA
+========================================================= */
+
+.forte-preview {
+    position: relative;
+
+    min-height: 720px;
+
+    display: flex;
+    align-items: center;
+
+    overflow: hidden;
+
+    background: var(--black-soft);
+}
+
+.forte-image {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(5, 5, 5, 0.95) 0%,
+            rgba(5, 5, 5, 0.72) 40%,
+            rgba(5, 5, 5, 0.25) 100%
+        ),
+        url("../images/forte-coimbra.jpg") center / cover no-repeat;
+
+    transform: scale(1.02);
+
+    transition: transform 1.5s ease;
+}
+
+.forte-preview:hover .forte-image {
+    transform: scale(1.06);
+}
+
+.forte-content {
+    position: relative;
+    z-index: 2;
+
+    width: min(650px, 85%);
+
+    margin-left: 8vw;
+}
+
+.forte-content h2 {
+    font-family: var(--font-title);
+
+    font-size: clamp(45px, 7vw, 90px);
+
+    font-weight: 400;
+
+    margin-bottom: 25px;
+}
+
+.forte-content > p:not(.section-label) {
+    max-width: 570px;
+
+    color: var(--gray);
+
+    font-size: 14px;
+
+    line-height: 1.9;
+}
+
+.forte-topics {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 10px;
+
+    max-width: 650px;
+
+    margin: 45px 0;
+}
+
+.forte-topics div {
+    border-top: 1px solid var(--line);
+
+    padding-top: 14px;
+}
+
+.forte-topics span {
+    display: block;
+
+    color: var(--gold);
+
+    font-size: 9px;
+
+    margin-bottom: 8px;
+}
+
+.forte-topics strong {
+    font-family: var(--font-title);
+
+    font-size: 13px;
+
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   EXPERIÊNCIA
+========================================================= */
+
+.experience-section {
+    background:
+        linear-gradient(
+            180deg,
+            var(--black-soft),
+            var(--black)
+        );
+}
+
+.center-title {
+    position: relative;
+    z-index: 2;
+
+    max-width: 750px;
+
+    margin: 0 auto 70px;
+
+    text-align: center;
+}
+
+.center-title h2 {
+    font-family: var(--font-title);
+
+    font-size: clamp(35px, 5vw, 60px);
+
+    font-weight: 400;
+
+    margin-bottom: 20px;
+}
+
+.center-title > p:last-child {
+    color: var(--gray);
+
+    font-size: 14px;
+
+    line-height: 1.8;
+}
+
+.experience-grid {
+    position: relative;
+    z-index: 2;
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    border-top: 1px solid var(--line);
+    border-left: 1px solid var(--line);
+}
+
+.experience-card {
+    min-height: 300px;
+
+    padding: 35px 30px;
+
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+
+    position: relative;
+
+    background: rgba(255, 255, 255, 0.015);
+
+    overflow: hidden;
+
+    transition:
+        background var(--transition),
+        transform var(--transition);
+}
+
+.experience-card::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 2px;
+
+    background: var(--gold);
+
+    transform: scaleX(0);
+
+    transform-origin: left;
+
+    transition: transform var(--transition);
+}
+
+.experience-card:hover {
+    background: rgba(201, 164, 92, 0.06);
+
+    transform: translateY(-6px);
+}
+
+.experience-card:hover::before {
+    transform: scaleX(1);
+}
+
+.experience-card > span {
+    color: var(--gold);
+
+    font-family: var(--font-title);
+
+    font-size: 12px;
+}
+
+.experience-card h3 {
+    font-family: var(--font-title);
+
+    font-size: 23px;
+
+    font-weight: 500;
+
+    margin-top: 55px;
+}
+
+.experience-card p {
+    color: var(--gray);
+
+    font-size: 12px;
+
+    line-height: 1.8;
+
+    margin-top: 18px;
+}
+
+.experience-card strong {
+    position: absolute;
+
+    bottom: 30px;
+    left: 30px;
+
+    color: var(--gold);
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    position: relative;
+
+    padding: 80px 7vw 45px;
+
+    text-align: center;
+
+    border-top: 1px solid var(--line);
+
+    background: #030303;
+}
+
+.footer-logo {
+    font-family: var(--font-title);
+
+    font-size: 25px;
+
+    letter-spacing: 4px;
+
+    color: var(--white);
+
+    margin-bottom: 18px;
+}
+
+footer p {
+    color: var(--gray);
+
+    font-size: 12px;
+
+    margin-bottom: 10px;
+}
+
+footer small {
+    color: var(--gray-dark);
+
+    font-size: 9px;
+
+    letter-spacing: 1px;
+}
+
+.footer-author {
+    margin-top: 35px;
+
+    color: rgba(201, 164, 92, 0.5);
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+}
+
+
+/* =========================================================
+   ANIMAÇÕES DE ENTRADA
+========================================================= */
+
+.reveal {
+    opacity: 0;
+
+    transform: translateY(35px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .site-header {
+        padding: 0 3vw;
+    }
+
+    .site-header nav {
+        gap: 14px;
+    }
+
+    .site-header nav a {
+        font-size: 8px;
+    }
+
+    .intro-grid {
+        gap: 45px;
+    }
+
+    .experience-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 800px) {
+
+    :root {
+        --header-height: 70px;
+    }
+
+
+    /* HEADER */
+
+    .site-header {
+        padding: 0 20px;
+    }
+
+    .logo strong {
+        font-size: 10px;
+    }
+
+    .logo small {
+        font-size: 7px;
+    }
+
+    .site-header nav {
+        display: none;
+    }
+
+
+    /* HERO */
+
+    .hero {
+        min-height: 100svh;
+
+        background-position: 62% center;
+    }
+
+    .hero-content {
+        width: 88%;
+        padding-top: 50px;
+    }
+
+    .eyebrow {
+        font-size: 8px;
+        letter-spacing: 3px;
+    }
+
+    .hero h1 {
+        font-size: clamp(48px, 14vw, 80px);
+    }
+
+    .hero-description {
+        font-size: 13px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .gold-button,
+    .outline-button {
+        width: 100%;
+    }
+
+    .scroll-indicator {
+        display: none;
+    }
+
+
+    /* SEÇÕES */
+
+    .intro-section,
+    .experience-section {
+        padding: 110px 7vw;
+    }
+
+    .section-number {
+        top: 35px;
+        left: 7vw;
+
+        font-size: 60px;
+    }
+
+    .intro-grid {
+        grid-template-columns: 1fr;
+
+        gap: 45px;
+    }
+
+    .intro-text {
+        padding-top: 0;
+    }
+
+
+    /* FORTE */
+
+    .forte-preview {
+        min-height: 800px;
+    }
+
+    .forte-content {
+        margin-left: 7vw;
+    }
+
+    .forte-topics {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 25px;
+    }
+
+
+    /* EXPERIÊNCIA */
+
+    .experience-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .experience-card {
+        min-height: 280px;
+    }
+
+
+    /* FOOTER */
+
+    footer {
+        padding: 65px 7vw 35px;
+    }
+
+    .footer-logo {
+        font-size: 19px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE PEQUENO
+========================================================= */
+
+@media (max-width: 450px) {
+
+    .hero h1 {
+        font-size: 45px;
+    }
+
+    .loader-content h1 {
+        font-size: 30px;
+    }
+
+    .author-credit {
+        right: 20px;
+        bottom: 20px;
+    }
+
+    .forte-topics {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+
+/* =========================================================
+   ACESSIBILIDADE
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+}

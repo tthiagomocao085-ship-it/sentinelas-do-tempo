@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Quiz Histórico | Sentinelas do Tempo</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/quiz.css">
+
+</head>
+
+<body>
+
+    <header class="quiz-header">
+
+        <a href="index.html" class="back-button">
+            ← VOLTAR AO MUSEU
+        </a>
+
+        <div class="quiz-logo">
+            SENTINELAS DO TEMPO
+        </div>
+
+        <div class="quiz-counter">
+            <span id="question-number">01</span>
+            / 05
+        </div>
+
+    </header>
+
+
+    <main class="quiz-main">
+
+        <div class="quiz-introduction" id="quiz-introduction">
+
+            <p class="eyebrow">
+                PRIMEIRA ETAPA
+            </p>
+
+            <h1>
+                Você conhece<br>
+                <span>a nossa história?</span>
+            </h1>
+
+            <p>
+                Antes de entrar no museu, descubra quanto você já sabe
+                sobre a Guerra do Paraguai e o Forte Coimbra.
+            </p>
+
+            <button id="start-quiz" class="gold-button">
+                COMEÇAR O QUIZ →
+            </button>
+
+        </div>
+
+
+        <div class="quiz-container hidden" id="quiz-container">
+
+            <div class="progress-area">
+
+                <div class="progress-bar">
+                    <div id="progress"></div>
+                </div>
+
+            </div>
+
+
+            <div class="question-area">
+
+                <p class="question-label">
+                    QUESTÃO <span id="current-question">01</span>
+                </p>
+
+                <h2 id="question">
+                    Pergunta
+                </h2>
+
+                <div id="answers" class="answers"></div>
+
+            </div>
+
+
+            <button id="next-button" class="next-button hidden">
+                PRÓXIMA QUESTÃO →
+            </button>
+
+        </div>
+
+
+        <div class="result-container hidden" id="result-container">
+
+            <p class="eyebrow">
+                EXPERIÊNCIA CONCLUÍDA
+            </p>
+
+            <h1>
+                Sua jornada<br>
+                <span>está apenas começando.</span>
+            </h1>
+
+            <div class="score-box">
+
+                <span>SEU RESULTADO</span>
+
+                <strong id="score">
+                    0/5
+                </strong>
+
+            </div>
+
+            <p id="result-message"></p>
+
+            <a href="guerra.html" class="gold-button">
+                COMEÇAR A HISTÓRIA →
+            </a>
+
+        </div>
+
+    </main>
+
+
+    <div class="quiz-author">
+        by Alessandro
+    </div>
+
+
+    <script src="js/quiz.js"></script>
+
+</body>
+
+</html>

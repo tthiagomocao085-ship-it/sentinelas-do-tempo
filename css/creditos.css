@@ -1,0 +1,1385 @@
+/* =========================================================
+   SENTINELAS DO TEMPO
+   CRÉDITOS FINAIS
+   CSS EXCLUSIVO DE creditos.html
+   ========================================================= */
+
+
+/* =========================================================
+   VARIÁVEIS
+   ========================================================= */
+
+:root {
+    --credits-black: #050505;
+    --credits-black-soft: #0a0a0a;
+    --credits-black-medium: #111111;
+
+    --credits-gold: #c9a45c;
+    --credits-gold-light: #e0c17a;
+    --credits-gold-dark: #8f7137;
+
+    --credits-white: #f4f1ea;
+    --credits-gray: #aaa69e;
+    --credits-gray-dark: #66635d;
+
+    --credits-line: rgba(201, 164, 92, 0.22);
+
+    --credits-title: "Cinzel", serif;
+    --credits-body: "Inter", sans-serif;
+}
+
+
+/* =========================================================
+   RESET ESPECÍFICO DA PÁGINA
+   ========================================================= */
+
+body.credits-page {
+    margin: 0;
+    padding: 0;
+
+    background: var(--credits-black);
+    color: var(--credits-white);
+
+    font-family: var(--credits-body);
+
+    overflow-x: hidden;
+}
+
+body.credits-page *,
+body.credits-page *::before,
+body.credits-page *::after {
+    box-sizing: border-box;
+}
+
+body.credits-page h1,
+body.credits-page h2,
+body.credits-page h3,
+body.credits-page h4,
+body.credits-page p,
+body.credits-page span {
+    margin-top: 0;
+}
+
+body.credits-page a {
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   GARANTE AS FONTES
+   ========================================================= */
+
+body.credits-page h1,
+body.credits-page h2,
+body.credits-page h3,
+body.credits-page h4,
+body.credits-page .group-title,
+body.credits-page .credits-footer > p {
+    font-family: var(--credits-title);
+}
+
+body.credits-page p,
+body.credits-page span,
+body.credits-page a,
+body.credits-page strong {
+    font-family: var(--credits-body);
+}
+
+
+/* =========================================================
+   LOADER
+   ========================================================= */
+
+#creditsLoader {
+    position: fixed;
+    inset: 0;
+
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #050505;
+
+    opacity: 1;
+    visibility: visible;
+
+    transition:
+        opacity 1s ease,
+        visibility 1s ease;
+}
+
+#creditsLoader.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.credits-loader-content {
+    width: 90%;
+
+    text-align: center;
+}
+
+.credits-loader-content span {
+    display: block;
+
+    margin-bottom: 20px;
+
+    color: var(--credits-gold);
+
+    font-family: var(--credits-body);
+
+    font-size: 10px;
+    font-weight: 600;
+
+    letter-spacing: 6px;
+    text-transform: uppercase;
+}
+
+.credits-loader-content h1 {
+    margin: 0;
+
+    color: var(--credits-white);
+
+    font-family: var(--credits-title);
+
+    font-size: clamp(28px, 5vw, 60px);
+    font-weight: 500;
+
+    letter-spacing: 5px;
+}
+
+
+/* =========================================================
+   HEADER
+   NÃO MEXE NA LOGO
+   A LOGO VEM DO style.css
+   ========================================================= */
+
+body.credits-page .site-header {
+    z-index: 1000;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.credits-hero {
+    position: relative;
+
+    min-height: 92vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding:
+        150px
+        7%
+        120px;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(5, 5, 5, 0.25),
+            rgba(5, 5, 5, 0.88)
+        ),
+        url("../images/forte-memoria.jpg")
+        center / cover no-repeat;
+
+    background-attachment: fixed;
+}
+
+.credits-hero::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            transparent 10%,
+            rgba(0, 0, 0, 0.55) 85%
+        );
+
+    pointer-events: none;
+}
+
+.credits-hero::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: 0;
+
+    width: 1px;
+    height: 110px;
+
+    transform: translateX(-50%);
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent,
+            var(--credits-gold)
+        );
+}
+
+.credits-hero-content {
+    position: relative;
+
+    z-index: 2;
+
+    width: min(900px, 100%);
+
+    text-align: center;
+}
+
+.credits-kicker {
+    display: block;
+
+    margin-bottom: 24px;
+
+    color: var(--credits-gold);
+
+    font-family: var(--credits-body) !important;
+
+    font-size: 10px;
+    font-weight: 600;
+
+    letter-spacing: 5px;
+
+    line-height: 1.5;
+
+    text-transform: uppercase;
+}
+
+.credits-hero h1 {
+    margin: 0;
+
+    color: var(--credits-white);
+
+    font-family: var(--credits-title) !important;
+
+    font-size: clamp(42px, 7vw, 86px);
+    font-weight: 500;
+
+    line-height: 1.08;
+
+    letter-spacing: 1px;
+
+    text-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.7);
+}
+
+.credits-hero p {
+    max-width: 700px;
+
+    margin: 35px auto 0;
+
+    color: rgba(244, 241, 234, 0.75);
+
+    font-family: var(--credits-body) !important;
+
+    font-size: 15px;
+    font-weight: 300;
+
+    line-height: 1.9;
+}
+
+
+/* =========================================================
+   CABEÇALHOS DE SEÇÃO
+   ========================================================= */
+
+.credits-section-heading {
+    width: min(900px, 100%);
+
+    margin: 0 auto 60px;
+
+    text-align: center;
+}
+
+.credits-section-heading h2 {
+    margin: 0 0 25px;
+
+    color: var(--credits-white);
+
+    font-family: var(--credits-title) !important;
+
+    font-size: clamp(32px, 5vw, 58px);
+    font-weight: 500;
+
+    line-height: 1.15;
+
+    letter-spacing: 1px;
+}
+
+.credits-section-heading p {
+    max-width: 720px;
+
+    margin: 0 auto 18px;
+
+    color: var(--credits-gray);
+
+    font-family: var(--credits-body) !important;
+
+    font-size: 14px;
+    font-weight: 300;
+
+    line-height: 1.9;
+}
+
+
+/* =========================================================
+   MENSAGEM FINAL
+   ========================================================= */
+
+.credits-final-message {
+    position: relative;
+
+    padding:
+        140px
+        7%;
+
+    background:
+        linear-gradient(
+            rgba(5, 5, 5, 0.82),
+            rgba(5, 5, 5, 0.96)
+        ),
+        url("../images/forte-coimbra.jpg")
+        center / cover no-repeat;
+
+    background-attachment: fixed;
+
+    text-align: center;
+}
+
+.credits-final-message::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    width: 1px;
+    height: 80px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            var(--credits-gold),
+            transparent
+        );
+}
+
+.credits-final-message .credits-section-heading {
+    position: relative;
+    z-index: 2;
+
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   ACERVO
+   ========================================================= */
+
+.credits-documents {
+    max-width: 1250px;
+
+    margin: 0 auto;
+
+    padding:
+        130px
+        7%;
+}
+
+.document-highlight {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 60px;
+
+    padding: 50px;
+
+    border: 1px solid var(--credits-line);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(201, 164, 92, 0.06),
+            rgba(255, 255, 255, 0.015)
+        );
+}
+
+.document-highlight::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 3px;
+    height: 100%;
+
+    background: var(--credits-gold);
+}
+
+.document-highlight > div {
+    flex: 1;
+}
+
+.document-highlight > div > span {
+    display: block;
+
+    margin-bottom: 15px;
+
+    color: var(--credits-gold);
+
+    font-size: 10px;
+    font-weight: 600;
+
+    letter-spacing: 4px;
+}
+
+.document-highlight h3 {
+    margin: 0 0 18px;
+
+    color: var(--credits-white);
+
+    font-family: var(--credits-title) !important;
+
+    font-size: clamp(25px, 3vw, 38px);
+    font-weight: 500;
+
+    line-height: 1.2;
+}
+
+.document-highlight p {
+    max-width: 650px;
+
+    margin: 0;
+
+    color: var(--credits-gray);
+
+    font-size: 14px;
+
+    line-height: 1.9;
+}
+
+
+/* =========================================================
+   BOTÕES
+   ========================================================= */
+
+.credits-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 15px;
+
+    flex-shrink: 0;
+
+    min-height: 52px;
+
+    padding:
+        0 26px;
+
+    border: 1px solid var(--credits-gold);
+
+    color: var(--credits-gold);
+
+    background: transparent;
+
+    font-family: var(--credits-body) !important;
+
+    font-size: 10px;
+    font-weight: 600;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    transition:
+        background 0.35s ease,
+        color 0.35s ease,
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.credits-button span {
+    font-size: 17px;
+
+    transition:
+        transform 0.35s ease;
+}
+
+.credits-button:hover {
+    color: #050505;
+
+    background: var(--credits-gold);
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.35);
+}
+
+.credits-button:hover span {
+    transform: translateX(5px);
+}
+
+
+/* =========================================================
+   EQUIPE
+   ========================================================= */
+
+.credits-team {
+    max-width: 1400px;
+
+    margin: 0 auto;
+
+    padding:
+        130px
+        7%;
+}
+
+.credits-groups {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 25px;
+
+    align-items: stretch;
+}
+
+.credits-group {
+    position: relative;
+
+    padding: 35px 30px;
+
+    border: 1px solid var(--credits-line);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.025),
+            rgba(255, 255, 255, 0)
+        );
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        background 0.35s ease;
+}
+
+.credits-group:hover {
+    transform: translateY(-6px);
+
+    border-color:
+        rgba(201, 164, 92, 0.5);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(201, 164, 92, 0.055),
+            rgba(255, 255, 255, 0)
+        );
+}
+
+
+/* =========================================================
+   TÍTULO DOS GRUPOS
+   ========================================================= */
+
+.group-title {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 30px;
+
+    padding-bottom: 20px;
+
+    border-bottom:
+        1px solid rgba(201, 164, 92, 0.15);
+}
+
+.group-title > span {
+    color: var(--credits-gold);
+
+    font-family: var(--credits-body);
+
+    font-size: 10px;
+    font-weight: 600;
+
+    letter-spacing: 2px;
+}
+
+.group-title h3 {
+    margin: 0;
+
+    color: var(--credits-white);
+
+    font-family: var(--credits-title) !important;
+
+    font-size: 18px;
+    font-weight: 500;
+
+    line-height: 1.3;
+}
+
+
+/* =========================================================
+   PESSOAS
+   ========================================================= */
+
+.credits-grid {
+    display: grid;
+
+    gap: 0;
+}
+
+.person-card {
+    display: grid;
+
+    grid-template-columns: 38px 1fr;
+
+    gap: 15px;
+
+    padding:
+        22px 0;
+
+    border-bottom:
+        1px solid rgba(201, 164, 92, 0.12);
+}
+
+.person-card:first-child {
+    padding-top: 0;
+}
+
+.person-card:last-child {
+    border-bottom: none;
+
+    padding-bottom: 0;
+}
+
+.person-number {
+    color: var(--credits-gold);
+
+    font-family: var(--credits-title);
+
+    font-size: 13px;
+}
+
+.person-info {
+    min-width: 0;
+}
+
+.person-role {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: var(--credits-gold);
+
+    font-family: var(--credits-body) !important;
+
+    font-size: 9px;
+    font-weight: 600;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+.person-info h4 {
+    margin: 0 0 10px;
+
+    color: var(--credits-white);
+
+    font-family: var(--credits-title) !important;
+
+    font-size: 18px;
+    font-weight: 500;
+
+    line-height: 1.3;
+}
+
+.person-info p {
+    margin: 0;
+
+    color: var(--credits-gray-dark);
+
+    font-family: var(--credits-body) !important;
+
+    font-size: 11px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   COMUNIDADE ESCOLAR
+   ========================================================= */
+
+.school-credits {
+    display: grid;
+
+    gap: 0;
+}
+
+.school-credit {
+    padding:
+        20px 0;
+
+    border-bottom:
+        1px solid rgba(201, 164, 92, 0.12);
+}
+
+.school-credit:first-child {
+    padding-top: 0;
+}
+
+.school-credit:last-child {
+    border-bottom: none;
+
+    padding-bottom: 0;
+}
+
+.school-role {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: var(--credits-gold);
+
+    font-size: 9px;
+    font-weight: 600;
+
+    letter-spacing: 2px;
+}
+
+.school-credit strong {
+    display: block;
+
+    color: var(--credits-white);
+
+    font-size: 13px;
+    font-weight: 400;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   EQUIPE DO PROJETO
+   ========================================================= */
+
+.project-credit {
+    display: grid;
+
+    gap: 0;
+}
+
+.project-credit > div {
+    padding:
+        20px 0;
+
+    border-bottom:
+        1px solid rgba(201, 164, 92, 0.12);
+}
+
+.project-credit > div:first-child {
+    padding-top: 0;
+}
+
+.project-credit > div:last-child {
+    border-bottom: none;
+
+    padding-bottom: 0;
+}
+
+.project-credit span {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: var(--credits-gold);
+
+    font-size: 9px;
+    font-weight: 600;
+
+    letter-spacing: 2px;
+}
+
+.project-credit strong {
+    display: block;
+
+    color: var(--credits-white);
+
+    font-family: var(--credits-title) !important;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   INSTAGRAM
+   ========================================================= */
+
+.instagram-section {
+    position: relative;
+
+    min-height: 550px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding:
+        100px
+        7%;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            rgba(5, 5, 5, 0.62),
+            rgba(5, 5, 5, 0.9)
+        ),
+        url("../images/trajetoria/sentinelas.jpg")
+        center / cover no-repeat;
+
+    background-attachment: fixed;
+}
+
+.instagram-section .credits-section-heading {
+    position: relative;
+
+    z-index: 2;
+
+    margin-bottom: 0;
+}
+
+.instagram-link {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    margin-top: 30px;
+
+    padding:
+        18px 25px;
+
+    border:
+        1px solid rgba(201, 164, 92, 0.35);
+
+    background:
+        rgba(5, 5, 5, 0.35);
+
+    transition:
+        border-color 0.3s ease,
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+.instagram-link:hover {
+    border-color: var(--credits-gold);
+
+    background:
+        rgba(201, 164, 92, 0.08);
+
+    transform: translateY(-3px);
+}
+
+.instagram-link span {
+    color: var(--credits-gold);
+
+    font-size: 9px;
+    font-weight: 600;
+
+    letter-spacing: 2px;
+}
+
+.instagram-link strong {
+    color: var(--credits-white);
+
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.instagram-link em {
+    color: var(--credits-gold);
+
+    font-size: 17px;
+
+    font-style: normal;
+}
+
+
+/* =========================================================
+   TRAJETÓRIA
+   ========================================================= */
+
+.trajectory-ending {
+    position: relative;
+
+    min-height: 650px;
+
+    display: flex;
+
+    align-items: center;
+
+    padding:
+        120px 10%;
+
+    background:
+        linear-gradient(
+            to right,
+            rgba(5, 5, 5, 0.92),
+            rgba(5, 5, 5, 0.55)
+        ),
+        url("../images/trajetoria/facepan-2025.jpg")
+        center / cover no-repeat;
+}
+
+.trajectory-ending-content {
+    width: min(700px, 100%);
+}
+
+.trajectory-ending-content h2 {
+    margin: 0 0 30px;
+
+    color: var(--credits-white);
+
+    font-family: var(--credits-title) !important;
+
+    font-size: clamp(35px, 5vw, 65px);
+    font-weight: 500;
+
+    line-height: 1.1;
+}
+
+.trajectory-ending-content p {
+    max-width: 620px;
+
+    margin: 0 0 18px;
+
+    color: rgba(244, 241, 234, 0.72);
+
+    font-size: 14px;
+
+    line-height: 1.9;
+}
+
+.trajectory-ending-content .credits-button {
+    margin-top: 20px;
+}
+
+
+/* =========================================================
+   MANIFESTO
+   ========================================================= */
+
+.manifesto {
+    position: relative;
+
+    padding:
+        150px 7%;
+
+    text-align: center;
+
+    border-top:
+        1px solid var(--credits-line);
+
+    border-bottom:
+        1px solid var(--credits-line);
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(201, 164, 92, 0.055),
+            transparent 55%
+        ),
+        var(--credits-black);
+}
+
+.manifesto h2 {
+    margin: 10px 0;
+
+    color: var(--credits-white);
+
+    font-family: var(--credits-title) !important;
+
+    font-size: clamp(30px, 5vw, 64px);
+    font-weight: 500;
+
+    line-height: 1.2;
+}
+
+.manifesto h2:nth-of-type(2) {
+    color: var(--credits-gold);
+}
+
+.manifesto h2:nth-of-type(3) {
+    margin-top: 25px;
+
+    font-size: clamp(25px, 4vw, 48px);
+
+    color: rgba(244, 241, 234, 0.72);
+}
+
+
+/* =========================================================
+   FINAL
+   ========================================================= */
+
+.credits-final {
+    position: relative;
+
+    min-height: 82vh;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding:
+        120px 7%;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            rgba(5, 5, 5, 0.6),
+            rgba(5, 5, 5, 0.94)
+        ),
+        url("../images/forte-coimbra.jpg")
+        center / cover no-repeat;
+
+    background-attachment: fixed;
+}
+
+.credits-final::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            transparent 20%,
+            rgba(0, 0, 0, 0.4) 90%
+        );
+}
+
+.credits-final-content {
+    position: relative;
+
+    z-index: 2;
+
+    width: min(850px, 100%);
+}
+
+.credits-final-content h2 {
+    margin: 0 0 25px;
+
+    color: var(--credits-white);
+
+    font-family: var(--credits-title) !important;
+
+    font-size: clamp(38px, 6vw, 75px);
+    font-weight: 500;
+
+    line-height: 1.1;
+}
+
+.credits-final-content p {
+    max-width: 700px;
+
+    margin: 0 auto 35px;
+
+    color: rgba(244, 241, 234, 0.72);
+
+    font-size: 14px;
+
+    line-height: 1.9;
+}
+
+.credits-buttons {
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 15px;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.credits-footer {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    padding:
+        55px
+        7%
+        28px;
+
+    border-top:
+        1px solid var(--credits-line);
+
+    background:
+        #050505;
+
+    text-align: center;
+}
+
+.credits-footer > p {
+    margin: 0;
+
+    color: var(--credits-white);
+
+    font-family: var(--credits-title) !important;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    letter-spacing: 3px;
+}
+
+.credits-footer > span {
+    color: rgba(244, 241, 234, 0.25);
+
+    font-family: var(--credits-body) !important;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    text-transform: lowercase;
+}
+
+
+/* =========================================================
+   ANIMAÇÃO REVEAL
+   ========================================================= */
+
+.credits-reveal {
+    opacity: 0;
+
+    transform: translateY(35px);
+
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s ease;
+}
+
+.credits-visible {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE
+   ========================================================= */
+
+@media (max-width: 1050px) {
+
+    .credits-groups {
+        grid-template-columns: 1fr;
+    }
+
+    .credits-group {
+        width: 100%;
+    }
+
+    .document-highlight {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .document-highlight .credits-button {
+        width: auto;
+    }
+}
+
+
+@media (max-width: 760px) {
+
+    .credits-hero {
+        min-height: 82vh;
+
+        padding:
+            130px 6%
+            100px;
+
+        background-attachment: scroll;
+    }
+
+    .credits-final-message,
+    .instagram-section,
+    .credits-final {
+        background-attachment: scroll;
+    }
+
+    .credits-documents,
+    .credits-team {
+        padding:
+            100px 6%;
+    }
+
+    .document-highlight {
+        padding: 30px;
+
+        gap: 35px;
+    }
+
+    .document-highlight .credits-button {
+        width: 100%;
+    }
+
+    .trajectory-ending {
+        min-height: 600px;
+
+        padding:
+            100px 7%;
+
+        background:
+            linear-gradient(
+                rgba(5, 5, 5, 0.76),
+                rgba(5, 5, 5, 0.92)
+            ),
+            url("../images/trajetoria/facepan-2025.jpg")
+            center / cover no-repeat;
+    }
+
+    .manifesto {
+        padding:
+            110px 6%;
+    }
+
+    .credits-buttons {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .credits-buttons .credits-button {
+        width: 100%;
+    }
+
+    .instagram-link {
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .credits-hero h1 {
+        font-size: 38px;
+    }
+
+    .credits-hero p {
+        font-size: 13px;
+    }
+
+    .credits-section-heading h2 {
+        font-size: 30px;
+    }
+
+    .credits-group {
+        padding: 28px 22px;
+    }
+
+    .group-title h3 {
+        font-size: 16px;
+    }
+
+    .person-info h4 {
+        font-size: 16px;
+    }
+
+    .trajectory-ending-content h2 {
+        font-size: 35px;
+    }
+
+    .credits-final-content h2 {
+        font-size: 38px;
+    }
+}
+
+
+/* =========================================================
+   REDUZIR ANIMAÇÕES
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .credits-reveal {
+        opacity: 1;
+
+        transform: none;
+
+        transition: none;
+    }
+
+    .credits-button,
+    .credits-button span,
+    .credits-group,
+    .instagram-link {
+        transition: none;
+    }
+
+    .credits-hero,
+    .credits-final-message,
+    .instagram-section,
+    .credits-final {
+        background-attachment: scroll;
+    }
+}
