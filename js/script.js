@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         loader.classList.add("hidden");
 
-        body.classList.add("page-loaded");
+        document.body.classList.add("page-loaded");
 
         setTimeout(() => {
 
