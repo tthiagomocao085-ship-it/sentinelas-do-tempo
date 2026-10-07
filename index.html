@@ -3,97 +3,118 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <meta
         name="description"
-        content="Sentinelas do Tempo — Museu Digital sobre a Guerra do Paraguai e o Forte Coimbra."
+        content="Sentinelas do Tempo — Museu Digital sobre o Forte Coimbra, sua história, patrimônio, território e memória."
     >
 
-    <title>Sentinelas do Tempo | Museu Digital</title>
+    <meta
+        name="theme-color"
+        content="#050505"
+    >
 
-    <!-- =====================================
+    <title>Forte Coimbra | Sentinelas do Tempo</title>
+
+
+    <!-- =====================================================
          FONTES
-    ====================================== -->
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+         ===================================================== -->
 
     <link
-        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
         rel="stylesheet"
     >
 
-    <!-- =====================================
-         CSS GLOBAL
-    ====================================== -->
 
-    <link rel="stylesheet" href="css/style.css">
+    <!-- =====================================================
+         CSS GLOBAL
+         ===================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+    <!-- =====================================================
+         CSS EXCLUSIVO DO FORTE COIMBRA
+         ===================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="css/forte-coimbra.css"
+    >
 
 </head>
 
 
-<body>
+<body class="forte-page">
 
-    <!-- =====================================
-         TELA DE CARREGAMENTO
-    ====================================== -->
 
-    <div id="loader">
+    <!-- =====================================================
+         ATMOSFERA DE FUNDO
+         ===================================================== -->
 
-        <div class="loader-content">
+    <div
+        class="fc-atmosphere"
+        aria-hidden="true"
+    >
 
-            <div class="loader-symbol">
-                ST
-            </div>
+        <div class="fc-atmosphere-noise"></div>
 
-            <p class="loader-small">
-                MUSEU DIGITAL
-            </p>
-
-            <h1>
-                SENTINELAS<br>
-                <span>DO TEMPO</span>
-            </h1>
-
-            <div class="loader-line">
-    <div id="loader-progress"></div>
-</div>
-
-            <p class="loader-status">
-                Preparando a experiência...
-            </p>
-
-        </div>
-
-        <div class="author-credit">
-            by Alessandro
-        </div>
+        <div class="fc-atmosphere-glow"></div>
 
     </div>
 
 
-    <!-- =====================================
-         NAVEGAÇÃO
-    ====================================== -->
+
+    <!-- =====================================================
+         CABEÇALHO
+         ===================================================== -->
 
     <header class="site-header">
 
-        <div class="logo">
+        <a
+            href="index.html"
+            class="logo"
+            aria-label="Voltar ao início"
+        >
 
             <span>ST</span>
 
             <div>
+
                 <strong>SENTINELAS</strong>
+
                 <small>DO TEMPO</small>
+
             </div>
 
-        </div>
+        </a>
 
 
-        <nav>
+        <nav
+            class="main-nav"
+            aria-label="Navegação principal"
+        >
 
-            <a href="index.html" class="active">
+            <a href="index.html">
                 Início
             </a>
 
@@ -102,10 +123,13 @@
             </a>
 
             <a href="guerra.html">
-                Guerra do Paraguai
+                A Guerra
             </a>
 
-            <a href="forte-coimbra.html">
+            <a
+                href="forte-coimbra.html"
+                class="active"
+            >
                 Forte Coimbra
             </a>
 
@@ -114,7 +138,7 @@
             </a>
 
             <a href="documentos.html">
-                Documentos
+                Acervo
             </a>
 
         </nav>
@@ -122,141 +146,1234 @@
     </header>
 
 
-    <!-- =====================================
+
+    <!-- =====================================================
          CONTEÚDO PRINCIPAL
-    ====================================== -->
+         ===================================================== -->
 
     <main>
 
 
-        <!-- =====================================
+        <!-- =================================================
              HERO
-        ====================================== -->
+             ================================================= -->
 
-        <section class="hero">
+        <section
+            class="fc-hero"
+            id="topo"
+        >
 
-            <div class="hero-overlay"></div>
+            <div class="fc-hero-background"></div>
+
+            <div class="fc-hero-vignette"></div>
 
 
-            <div class="hero-content">
+            <div class="fc-hero-content">
 
-                <p class="eyebrow">
-                    MEMÓRIA • HISTÓRIA • IDENTIDADE
+                <span class="fc-eyebrow">
+                    CAPÍTULO II
+                </span>
+
+
+                <span class="fc-hero-line"></span>
+
+
+                <p class="fc-hero-location">
+                    RIO PARAGUAI · MATO GROSSO DO SUL
                 </p>
 
 
                 <h1>
-                    SENTINELAS<br>
-                    <span>DO TEMPO</span>
+
+                    FORTE
+
+                    <span>
+                        COIMBRA
+                    </span>
+
                 </h1>
 
 
-                <p class="hero-description">
-                    Uma experiência digital dedicada à memória da
-                    Guerra do Paraguai e à história do Forte Coimbra.
+                <p class="fc-hero-text">
+
+                    Uma fortificação erguida na fronteira,
+                    atravessada por guerras, transformações
+                    e memórias que permanecem no território.
+
                 </p>
 
 
-                <div class="hero-buttons">
+                <a
+                    href="#historia"
+                    class="fc-hero-button"
+                >
 
-                    <a
-                        href="quiz.html"
-                        class="gold-button"
-                    >
-                        INICIAR EXPERIÊNCIA
-                        <span>→</span>
-                    </a>
+                    <span>
+                        Iniciar a exposição
+                    </span>
 
+                    <strong>
+                        ↓
+                    </strong>
 
-                    <a
-                        href="#sobre"
-                        class="outline-button"
-                    >
-                        EXPLORAR MUSEU
-                    </a>
-
-                </div>
+                </a>
 
             </div>
 
 
-            <div class="scroll-indicator">
+            <div class="fc-hero-footer">
 
                 <span>
-                    ROLE PARA EXPLORAR
+                    SENTINELAS DO TEMPO
                 </span>
 
-                <div></div>
+                <span>
+                    1797 — PRESENTE
+                </span>
 
             </div>
 
         </section>
 
 
-        <!-- =====================================
-             INTRODUÇÃO
-        ====================================== -->
+
+        <!-- =================================================
+             01 — O LUGAR
+             ================================================= -->
 
         <section
-            id="sobre"
-            class="intro-section"
+            class="fc-section fc-history-intro"
+            id="historia"
         >
 
-            <div class="section-number">
-                01
+            <div class="fc-container">
+
+
+                <div class="fc-section-index">
+
+                    <span>
+                        01
+                    </span>
+
+                    <div></div>
+
+                    <p>
+                        O LUGAR
+                    </p>
+
+                </div>
+
+
+
+                <div class="fc-history-intro-grid">
+
+
+                    <div class="fc-history-intro-title">
+
+                        <p class="fc-kicker">
+                            UMA FRONTEIRA DE MEMÓRIA
+                        </p>
+
+
+                        <h2>
+
+                            Antes de ser patrimônio,
+
+                            <em>
+                                foi fronteira.
+                            </em>
+
+                        </h2>
+
+                    </div>
+
+
+
+                    <div class="fc-history-intro-text">
+
+                        <p class="fc-lead">
+
+                            Às margens do Rio Paraguai,
+                            o Forte Coimbra ocupa uma posição
+                            que ajuda a compreender a formação
+                            histórica da fronteira oeste brasileira.
+
+                        </p>
+
+
+                        <p>
+
+                            A história da fortificação está relacionada
+                            à necessidade de ocupar, observar e defender
+                            uma região estratégica. Seu território não é
+                            apenas o cenário dos acontecimentos:
+                            ele faz parte da própria história.
+
+                        </p>
+
+
+                        <p>
+
+                            Ao longo dos séculos, o Forte passou por
+                            diferentes momentos. Foi construído,
+                            transformado, envolvido em conflitos,
+                            retomado e posteriormente reconhecido
+                            como patrimônio histórico.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
             </div>
 
+        </section>
 
-            <div class="intro-grid">
 
 
-                <div>
+        <!-- =================================================
+             IMAGEM — PAISAGEM
+             ================================================= -->
 
-                    <p class="section-label">
-                        UMA HISTÓRIA QUE PERMANECE
-                    </p>
+        <section class="fc-image-reveal">
+
+            <div class="fc-image-reveal-background"></div>
+
+            <div class="fc-image-reveal-overlay"></div>
+
+
+            <div class="fc-container">
+
+                <div class="fc-image-reveal-caption">
+
+                    <span>
+                        FORTE COIMBRA
+                    </span>
 
 
                     <h2>
-                        O passado não desaparece.
-                        <span>
-                            Ele permanece nas marcas que deixamos.
+                        História construída
+                        sobre a paisagem.
+                    </h2>
+
+
+                    <p>
+
+                        A fortificação e o território ao redor
+                        dela formam uma única paisagem histórica.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             02 — ORIGEM
+             ================================================= -->
+
+        <section
+            class="fc-section fc-origin"
+            id="origem"
+        >
+
+            <div class="fc-container">
+
+
+                <div class="fc-section-index">
+
+                    <span>
+                        02
+                    </span>
+
+                    <div></div>
+
+                    <p>
+                        ORIGEM
+                    </p>
+
+                </div>
+
+
+
+                <div class="fc-event">
+
+
+                    <div class="fc-event-year">
+                        1797
+                    </div>
+
+
+                    <div class="fc-event-content">
+
+                        <span class="fc-kicker">
+                            O NASCIMENTO DA FORTIFICAÇÃO
                         </span>
+
+
+                        <h2>
+
+                            A pedra substitui
+
+                            <br>
+
+                            <em>
+                                a paliçada.
+                            </em>
+
+                        </h2>
+
+
+                        <p class="fc-lead">
+
+                            Durante o processo de ocupação e
+                            organização militar da fronteira,
+                            começou a construção da fortificação
+                            de pedra que daria origem à configuração
+                            histórica do Forte Coimbra.
+
+                        </p>
+
+
+                        <p>
+
+                            A escolha do local estava relacionada
+                            à posição estratégica junto ao Rio Paraguai
+                            e às características do relevo.
+
+                            A altura permitia ampliar o campo de
+                            observação sobre o território e o rio.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <figure class="fc-main-image">
+
+                    <div class="fc-main-image-frame">
+
+                        <img
+                            src="images/forte-coimbra.jpg"
+                            alt="Forte Coimbra às margens do Rio Paraguai"
+                            loading="lazy"
+                        >
+
+                    </div>
+
+
+                    <figcaption>
+
+                        <span>
+                            ARQUITETURA · TERRITÓRIO
+                        </span>
+
+
+                        <strong>
+                            Forte Coimbra
+                        </strong>
+
+
+                        <small>
+
+                            A fortificação está integrada à paisagem
+                            histórica do Rio Paraguai.
+
+                        </small>
+
+                    </figcaption>
+
+                </figure>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             REGISTRO — 1859
+             ================================================= -->
+
+        <section
+            class="fc-section fc-record"
+            id="registro-1859"
+        >
+
+            <div class="fc-container">
+
+
+                <div class="fc-record-grid">
+
+
+                    <figure class="fc-record-image">
+
+                        <div>
+
+                            <img
+                                src="images/forte-1859.jpg"
+                                alt="Registro histórico do Forte Coimbra associado ao ano de 1859"
+                                loading="lazy"
+                            >
+
+                        </div>
+
+
+                        <figcaption>
+
+                            <span>
+                                REGISTRO HISTÓRICO
+                            </span>
+
+
+                            <strong>
+                                1859
+                            </strong>
+
+
+                            <small>
+
+                                Imagem histórica utilizada
+                                no acervo desta exposição.
+
+                            </small>
+
+                        </figcaption>
+
+                    </figure>
+
+
+
+                    <div class="fc-record-text">
+
+                        <span class="fc-kicker">
+                            UM FORTE ANTES DA GUERRA
+                        </span>
+
+
+                        <h2>
+
+                            Um instante
+
+                            <em>
+                                antes da ruptura.
+                            </em>
+
+                        </h2>
+
+
+                        <p>
+
+                            Os registros históricos permitem observar
+                            o Forte Coimbra em um período anterior
+                            aos acontecimentos que marcariam
+                            profundamente a região durante
+                            a Guerra do Paraguai.
+
+                        </p>
+
+
+                        <p>
+
+                            Fotografias, documentos e imagens históricas
+                            funcionam como fragmentos de uma memória
+                            que ajuda a aproximar o presente de um
+                            território que passou por grandes
+                            transformações.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             GUERRA — 1864
+             ================================================= -->
+
+        <section
+            class="fc-war"
+            id="guerra"
+        >
+
+            <div class="fc-war-background"></div>
+
+            <div class="fc-war-overlay"></div>
+
+
+            <div class="fc-container">
+
+
+                <div class="fc-war-heading">
+
+                    <span class="fc-kicker">
+
+                        CAPÍTULO DA GUERRA DO PARAGUAI
+
+                    </span>
+
+
+                    <h2>
+                        1864
+                    </h2>
+
+
+                    <p>
+                        Quando a fronteira entrou em guerra.
+                    </p>
+
+                </div>
+
+
+
+                <div class="fc-war-story">
+
+
+                    <div class="fc-war-date">
+
+                        <span>
+                            25
+                        </span>
+
+                        <small>
+                            DEZ
+                        </small>
+
+                        <i>
+                            1864
+                        </i>
+
+                    </div>
+
+
+
+                    <div class="fc-war-text">
+
+                        <p class="fc-lead">
+
+                            Em 25 de dezembro de 1864,
+                            forças paraguaias atacaram
+                            o Forte Coimbra.
+
+                        </p>
+
+
+                        <p>
+
+                            A guarnição resistiu aos ataques.
+                            Entretanto, diante da situação militar,
+                            a retirada foi realizada na noite de
+                            28 para 29 de dezembro, em direção
+                            a Corumbá.
+
+                        </p>
+
+
+                        <p>
+
+                            O episódio transformou o Forte em um
+                            dos espaços diretamente relacionados
+                            à história da Guerra do Paraguai
+                            na fronteira oeste.
+
+                        </p>
+
+                    </div>
+
+
+
+                    <figure class="fc-war-image">
+
+                        <img
+                            src="images/forte-1864.jpg"
+                            alt="Forte Coimbra relacionado ao contexto histórico de 1864"
+                            loading="lazy"
+                        >
+
+
+                        <figcaption>
+                            CONTEXTO HISTÓRICO · 1864
+                        </figcaption>
+
+                    </figure>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             LINHA DO TEMPO
+             ================================================= -->
+
+        <section
+            class="fc-timeline-section"
+            id="cronologia"
+        >
+
+            <div class="fc-container">
+
+
+                <div class="fc-timeline-heading">
+
+                    <span class="fc-kicker">
+                        LINHA DO TEMPO
+                    </span>
+
+
+                    <h2>
+
+                        O tempo
+
+                        <em>
+                            não apagou.
+                        </em>
+
+                    </h2>
+
+
+                    <p>
+
+                        Cada data representa uma transformação
+                        na história do Forte Coimbra.
+
+                    </p>
+
+                </div>
+
+
+
+                <div class="fc-timeline">
+
+
+                    <!-- 1797 -->
+
+                    <article class="fc-timeline-item">
+
+                        <div class="fc-timeline-year">
+                            1797
+                        </div>
+
+
+                        <div class="fc-timeline-dot"></div>
+
+
+                        <div class="fc-timeline-content">
+
+                            <span>
+                                ORIGEM
+                            </span>
+
+
+                            <h3>
+
+                                A construção da fortificação
+                                de pedra é iniciada.
+
+                            </h3>
+
+
+                            <p>
+
+                                A fortificação passa a representar
+                                um ponto estratégico na defesa
+                                e ocupação da fronteira.
+
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- 1859 -->
+
+                    <article class="fc-timeline-item">
+
+                        <div class="fc-timeline-year">
+                            1859
+                        </div>
+
+
+                        <div class="fc-timeline-dot"></div>
+
+
+                        <div class="fc-timeline-content">
+
+                            <span>
+                                REGISTRO
+                            </span>
+
+
+                            <h3>
+
+                                O Forte aparece em
+                                registros históricos.
+
+                            </h3>
+
+
+                            <p>
+
+                                Imagens e documentos ajudam
+                                a preservar a memória da
+                                fortificação antes dos grandes
+                                acontecimentos da guerra.
+
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- 1864 -->
+
+                    <article
+                        class="fc-timeline-item fc-timeline-highlight"
+                    >
+
+                        <div class="fc-timeline-year">
+                            1864
+                        </div>
+
+
+                        <div class="fc-timeline-dot"></div>
+
+
+                        <div class="fc-timeline-content">
+
+                            <span>
+                                GUERRA DO PARAGUAI
+                            </span>
+
+
+                            <h3>
+
+                                O Forte Coimbra
+                                é atacado.
+
+                            </h3>
+
+
+                            <p>
+
+                                Em dezembro, forças paraguaias
+                                atacam a fortificação.
+                                A guarnição resiste antes
+                                da retirada.
+
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- 1868 -->
+
+                    <article class="fc-timeline-item">
+
+                        <div class="fc-timeline-year">
+                            1868
+                        </div>
+
+
+                        <div class="fc-timeline-dot"></div>
+
+
+                        <div class="fc-timeline-content">
+
+                            <span>
+                                RETOMADA
+                            </span>
+
+
+                            <h3>
+
+                                O período de domínio
+                                paraguaio termina.
+
+                            </h3>
+
+
+                            <p>
+
+                                O Forte volta ao controle
+                                brasileiro durante o avanço
+                                das forças aliadas na região.
+
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- 1974 -->
+
+                    <article class="fc-timeline-item">
+
+                        <div class="fc-timeline-year">
+                            1974
+                        </div>
+
+
+                        <div class="fc-timeline-dot"></div>
+
+
+                        <div class="fc-timeline-content">
+
+                            <span>
+                                PATRIMÔNIO
+                            </span>
+
+
+                            <h3>
+
+                                O Forte é reconhecido
+                                como patrimônio histórico.
+
+                            </h3>
+
+
+                            <p>
+
+                                O tombamento pelo IPHAN marca
+                                uma nova etapa na preservação
+                                do conjunto histórico.
+
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- PRESENTE -->
+
+                    <article class="fc-timeline-item">
+
+                        <div class="fc-timeline-year">
+                            HOJE
+                        </div>
+
+
+                        <div class="fc-timeline-dot"></div>
+
+
+                        <div class="fc-timeline-content">
+
+                            <span>
+                                MEMÓRIA
+                            </span>
+
+
+                            <h3>
+
+                                O patrimônio continua
+                                contando sua história.
+
+                            </h3>
+
+
+                            <p>
+
+                                O Forte permanece como espaço
+                                de memória, pesquisa,
+                                patrimônio e identidade.
+
+                            </p>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             03 — TERRITÓRIO
+             ================================================= -->
+
+        <section
+            class="fc-section fc-territory"
+            id="territorio"
+        >
+
+            <div class="fc-container">
+
+
+                <div class="fc-section-index">
+
+                    <span>
+                        03
+                    </span>
+
+                    <div></div>
+
+                    <p>
+                        TERRITÓRIO
+                    </p>
+
+                </div>
+
+
+
+                <div class="fc-territory-grid">
+
+
+                    <div class="fc-territory-text">
+
+                        <span class="fc-kicker">
+
+                            RIO · FRONTEIRA · PAISAGEM
+
+                        </span>
+
+
+                        <h2>
+
+                            O território também conta
+
+                            <em>
+                                a história.
+                            </em>
+
+                        </h2>
+
+
+                        <p class="fc-lead">
+
+                            Não é possível compreender o Forte Coimbra
+                            sem compreender o território que o envolve.
+
+                        </p>
+
+
+                        <p>
+
+                            O Rio Paraguai, o relevo, a fronteira
+                            e a paisagem fazem parte da construção
+                            histórica desse lugar.
+
+                        </p>
+
+
+                        <p>
+
+                            A fortificação foi implantada justamente
+                            em função dessas características naturais
+                            e estratégicas.
+
+                        </p>
+
+                    </div>
+
+
+
+                    <figure class="fc-territory-image">
+
+                        <img
+                            src="images/guerra-1867.jpg"
+                            alt="Imagem relacionada ao contexto da Guerra do Paraguai"
+                            loading="lazy"
+                        >
+
+
+                        <figcaption>
+
+                            <span>
+                                CONTEXTO HISTÓRICO
+                            </span>
+
+
+                            <strong>
+                                1867
+                            </strong>
+
+                        </figcaption>
+
+                    </figure>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             04 — PATRIMÔNIO
+             ================================================= -->
+
+        <section
+            class="fc-section fc-heritage"
+            id="patrimonio"
+        >
+
+            <div class="fc-container">
+
+
+                <div class="fc-section-index">
+
+                    <span>
+                        04
+                    </span>
+
+                    <div></div>
+
+                    <p>
+                        PATRIMÔNIO
+                    </p>
+
+                </div>
+
+
+
+                <div class="fc-heritage-heading">
+
+                    <span class="fc-kicker">
+
+                        O QUE SOBROU DO TEMPO
+
+                    </span>
+
+
+                    <h2>
+
+                        Preservar não é apenas
+
+                        <em>
+                            guardar.
+                        </em>
+
                     </h2>
 
                 </div>
 
 
-                <div class="intro-text">
+
+                <div class="fc-heritage-grid">
+
+
+                    <div class="fc-heritage-text">
+
+                        <p class="fc-lead">
+
+                            Depois dos conflitos e das transformações
+                            ocorridas ao longo dos anos, o Forte passou
+                            por diferentes fases de conservação,
+                            reconstrução e abandono.
+
+                        </p>
+
+
+                        <p>
+
+                            A preservação do conjunto histórico permite
+                            que pesquisadores, estudantes e visitantes
+                            compreendam diferentes momentos da
+                            história regional.
+
+                        </p>
+
+
+                        <p>
+
+                            O patrimônio material também guarda
+                            uma dimensão imaterial: histórias,
+                            lembranças, interpretações e relações
+                            construídas entre as pessoas e o território.
+
+                        </p>
+
+                    </div>
+
+
+
+                    <div class="fc-heritage-stat">
+
+                        <span>
+                            IPHAN
+                        </span>
+
+
+                        <strong>
+                            1974
+                        </strong>
+
+
+                        <p>
+
+                            Tombamento do Forte Coimbra
+                            como patrimônio histórico nacional.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             MEMÓRIA
+             ================================================= -->
+
+        <section
+            class="fc-memory"
+            id="memoria"
+        >
+
+            <div class="fc-memory-background"></div>
+
+            <div class="fc-memory-overlay"></div>
+
+
+            <div class="fc-container">
+
+
+                <div class="fc-memory-content">
+
+                    <span class="fc-kicker">
+                        MEMÓRIA
+                    </span>
+
+
+                    <h2>
+
+                        O passado ainda está
+
+                        <em>
+                            aqui.
+                        </em>
+
+                    </h2>
+
 
                     <p>
-                        A história da região de Corumbá está profundamente
-                        ligada aos acontecimentos que transformaram a fronteira
-                        do Brasil durante o século XIX.
+
+                        Em uma paisagem, em uma fotografia,
+                        em um documento ou na lembrança
+                        de quem visita o lugar.
+
                     </p>
 
+                </div>
 
-                    <p>
-                        Entre esses acontecimentos está a Guerra do Paraguai,
-                        um dos maiores conflitos armados da América do Sul,
-                        que alterou profundamente as relações políticas,
-                        territoriais e sociais da região.
-                    </p>
+            </div>
+
+        </section>
 
 
-                    <p>
-                        No centro dessa memória encontra-se o Forte Coimbra,
-                        uma construção militar que atravessou diferentes
-                        períodos da história brasileira e permanece como
-                        símbolo da presença, resistência e memória da fronteira.
-                    </p>
+
+        <!-- =================================================
+             CONCLUSÃO
+             ================================================= -->
+
+        <section
+            class="fc-section fc-conclusion"
+            id="conclusao"
+        >
+
+            <div class="fc-container">
+
+
+                <div class="fc-conclusion-mark">
+                    ST
+                </div>
+
+
+                <span class="fc-kicker">
+                    FIM DO CAPÍTULO
+                </span>
+
+
+                <h2>
+
+                    Conhecer o Forte Coimbra é
+
+                    <em>
+                        conhecer parte de nós.
+                    </em>
+
+                </h2>
+
+
+                <p class="fc-conclusion-text">
+
+                    Sua história reúne fronteira, território,
+                    conflito, patrimônio e memória.
+
+                    Conhecer esse passado significa compreender
+                    melhor o lugar onde vivemos e reconhecer
+                    o valor de preservar aquilo que chegou até nós.
+
+                </p>
+
+
+
+                <div class="fc-conclusion-actions">
 
 
                     <a
-                        href="guerra.html"
-                        class="text-link"
+                        href="galeria.html"
+                        class="fc-button"
                     >
-                        COMEÇAR PELA HISTÓRIA →
+
+                        Explorar a Galeria
+
+                        <span>
+                            →
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        href="documentos.html"
+                        class="fc-button fc-button-outline"
+                    >
+
+                        Consultar o Acervo
+
+                        <span>
+                            →
+                        </span>
+
                     </a>
 
                 </div>
@@ -266,228 +1383,34 @@
         </section>
 
 
-        <!-- =====================================
-             DESTAQUE FORTE COIMBRA
-        ====================================== -->
 
-        <section class="forte-preview">
+        <!-- =================================================
+             PRÓXIMO CAPÍTULO
+             ================================================= -->
 
-            <div class="forte-image"></div>
+        <section class="fc-next">
 
+            <div class="fc-container">
 
-            <div class="forte-content">
-
-                <p class="section-label">
-                    O CORAÇÃO DO MUSEU
-                </p>
+                <span>
+                    PRÓXIMO
+                </span>
 
 
                 <h2>
-                    Forte Coimbra
+
+                    Registros que
+
+                    <em>
+                        permanecem.
+                    </em>
+
                 </h2>
 
 
-                <p>
-                    Entre o rio Paraguai, a fronteira e a memória de
-                    diferentes gerações, o Forte Coimbra tornou-se uma
-                    das referências históricas mais importantes da região.
-                </p>
+                <a href="galeria.html">
 
-
-                <div class="forte-topics">
-
-
-                    <div>
-
-                        <span>01</span>
-
-                        <strong>
-                            História
-                        </strong>
-
-                    </div>
-
-
-                    <div>
-
-                        <span>02</span>
-
-                        <strong>
-                            Cultura
-                        </strong>
-
-                    </div>
-
-
-                    <div>
-
-                        <span>03</span>
-
-                        <strong>
-                            Preservação
-                        </strong>
-
-                    </div>
-
-
-                    <div>
-
-                        <span>04</span>
-
-                        <strong>
-                            Legado
-                        </strong>
-
-                    </div>
-
-                </div>
-
-
-                <a
-                    href="forte-coimbra.html"
-                    class="gold-button"
-                >
-                    CONHECER O FORTE
-                    <span>→</span>
-                </a>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================
-             EXPERIÊNCIA
-        ====================================== -->
-
-        <section class="experience-section">
-
-
-            <div class="section-number">
-                02
-            </div>
-
-
-            <div class="center-title">
-
-                <p class="section-label">
-                    UMA EXPERIÊNCIA INTERATIVA
-                </p>
-
-
-                <h2>
-                    Muito mais que uma página.
-                </h2>
-
-
-                <p>
-                    Um percurso pela memória, pelos documentos,
-                    pelas imagens e pelos acontecimentos que ajudaram
-                    a construir a história da região.
-                </p>
-
-            </div>
-
-
-            <div class="experience-grid">
-
-
-                <!-- QUIZ -->
-
-                <a
-                    href="quiz.html"
-                    class="experience-card"
-                >
-
-                    <span>01</span>
-
-                    <h3>
-                        Quiz Histórico
-                    </h3>
-
-                    <p>
-                        Teste seus conhecimentos antes de iniciar
-                        a jornada pelo museu.
-                    </p>
-
-                    <strong>
-                        EXPLORAR →
-                    </strong>
-
-                </a>
-
-
-                <!-- GALERIA -->
-
-                <a
-                    href="galeria.html"
-                    class="experience-card"
-                >
-
-                    <span>02</span>
-
-                    <h3>
-                        Galeria
-                    </h3>
-
-                    <p>
-                        Fotografias, registros e imagens da história
-                        e do patrimônio.
-                    </p>
-
-                    <strong>
-                        VISITAR →
-                    </strong>
-
-                </a>
-
-
-                <!-- DOCUMENTOS -->
-
-                <a
-                    href="documentos.html"
-                    class="experience-card"
-                >
-
-                    <span>03</span>
-
-                    <h3>
-                        Documentos
-                    </h3>
-
-                    <p>
-                        Um espaço dedicado aos documentos e fontes
-                        históricas do projeto.
-                    </p>
-
-                    <strong>
-                        CONSULTAR →
-                    </strong>
-
-                </a>
-
-
-                <!-- TRAJETÓRIA -->
-
-                <a
-                    href="trajetoria.html"
-                    class="experience-card"
-                >
-
-                    <span>04</span>
-
-                    <h3>
-                        Nossa Trajetória
-                    </h3>
-
-                    <p>
-                        Conheça a origem do projeto, nossa pesquisa
-                        e a jornada que levou ao Sentinelas do Tempo.
-                    </p>
-
-                    <strong>
-                        CONHECER →
-                    </strong>
+                    Ir para a Galeria →
 
                 </a>
 
@@ -498,39 +1421,49 @@
     </main>
 
 
-    <!-- =====================================
+
+    <!-- =====================================================
          RODAPÉ
-    ====================================== -->
+         ===================================================== -->
 
-    <footer>
+    <footer class="site-footer">
 
-        <div class="footer-logo">
-            SENTINELAS DO TEMPO
-        </div>
+        <div class="footer-inner">
 
 
-        <p>
-            Museu Digital — Guerra do Paraguai e Forte Coimbra
-        </p>
+            <div>
+
+                <strong>
+                    SENTINELAS DO TEMPO
+                </strong>
 
 
-        <small>
-            Projeto educacional • Corumbá — MS
-        </small>
+                <span>
+                    Museu Digital · Forte Coimbra
+                </span>
+
+            </div>
 
 
-        <div class="footer-author">
-            by Alessandro
+            <a href="#topo">
+
+                Voltar ao início ↑
+
+            </a>
+
         </div>
 
     </footer>
 
 
-    <!-- =====================================
+
+    <!-- =====================================================
          JAVASCRIPT
-    ====================================== -->
+         ===================================================== -->
 
     <script src="js/script.js"></script>
+
+    <script src="js/forte.js"></script>
 
 </body>
 
